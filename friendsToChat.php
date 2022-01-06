@@ -1,4 +1,4 @@
-<?php
+<?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 require('head.html');
 ?>
 <body>
@@ -18,12 +18,11 @@ if(isset($_SESSION["name"])){
    ";
 }else{
     echo "
-    <script>
-     
+    <script>     
          alert('Please login to our site');
             window.location='index.php';
    </script>
 "; 
-}
+}         
 include("footer.php")
 ?>

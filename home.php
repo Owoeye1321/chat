@@ -9,15 +9,15 @@ session_start();
   if ($check_connection_to_database == true){
    $sql = "SELECT `username` FROM `users` WHERE `id` = $userId";
    $result = $check_connection_to_database->query($sql);
-   if($result->num_rows > 0){
+   if($result->num_rows > 0){              
      //Output data of each rows
      while($row = $result->fetch_assoc()){
      $_SESSION["friendUsername"] = $row["username"];
      }
-   }
+   }                                               
   }
  }
-  if(isset($_SESSION["friendUsername"])){
+  if(isset($_SESSION["friendUsername"])){                                                                         
     $friendUsername = $_SESSION["friendUsername"];
   }
   if(isset($_SESSION["name"])){
@@ -26,17 +26,21 @@ session_start();
 require('nav.php');
 
 
-if(isset($_POST["chat"])){
+if($_SERVER["REQUEST_METHOD"] ==  "POST" && isset($_POST["chat"])){
   $sender = $username;
   $receiver = $friendUsername;
+  
   $message = $_POST["chat"];  
+
   if($check_connection_to_database == true){
-  $sql = "INSERT INTO `messages` (`sender`,`receiver`,`message`) VALUES ($sender,$receiver,$message)";
+  $sql = "INSERT INTO `messages` (`sender`,`receiver`,`message`) VALUES ('$sender','$receiver','$message')";
   $result = $check_connection_to_database->query($sql);
-  if($result > 0){
-    echo "success";
+  if($result > 0){                                                  
+   // echo "success";     
   }else{
     echo "unable to save message";
+    echo $sender ,$receiver,$message;
+  
   }
   }else{
     echo "unable to load database";
@@ -53,7 +57,7 @@ if(isset($_POST["chat"])){
      ?></h3>
             
     <div id = "chatarea">
-     <h3><?php 
+     <h3><?php  
      echo $friendUsername;
      ?></h3>
       <div id = "mainchat">
@@ -63,16 +67,17 @@ if(isset($_POST["chat"])){
       </div>
         <form method = "POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
       <input class="form-control" name = "chat" placeholder= "Chat here" style="margin-top: 5px; width:65%;margin-left:20px;float:left;"/>
-      <input class="btn btn-success" type="submit" value="send" style="float: right;margin-top: 5px;margin-right:5%;" />
+      <input class="btn btn-success" name ="submit" type="submit" value="send" style="float: right;margin-top: 5px;margin-right:5%;" />
     </form>
     </div> 
    
   
    
           </div>
+       
           
- 
+          
+ <?php
 
-    </body> 
-
-</html>
+          include("footer.php")
+?>
