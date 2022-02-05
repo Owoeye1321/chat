@@ -12,13 +12,18 @@ $databaseName = "chatroom";
 $conn = new mysqli($servername,$username,$password,$databaseName);
 
 if ($conn){
-    $sql = "SELECT `message` FROM  `messages` WHERE `sender` = '$sender' AND `receiver` = '$receiver' OR `sender` = '$receiver' AND `receiver` = '$sender'  ";
+    $sql = "SELECT * FROM  `messages` WHERE `sender` = '$sender' AND `receiver` = '$receiver' OR `sender` = '$receiver' AND `receiver` = '$sender'  ";
     $result = $conn->query($sql);
     if($result->num_rows > 0 ){
         //output data of each row
         while($row = $result->fetch_assoc()){
-            $message  = $row["message"];          
-            echo "  <p style ='margin-bottom:4px;background-color:lightgreen;padding:2px 4px 4px 4px;border-radius:10px;width:fit-content;'> $message </p>  ";
+            $message  = $row["message"];
+            $getSenderDifferenceMessageColor = $row['sender'];
+            if($sender ==  $getSenderDifferenceMessageColor){
+                echo "  <p style ='margin-bottom:4px;background-color:pink;padding:2px 4px 4px 4px;border-radius:10px;width:fit-content;'> $message </p>  ";                
+            }elseif ($getSenderDifferenceMessageColor !== $sender){
+                 echo "  <p style ='margin-bottom:4px;background-color:lightgreen;padding:2px 4px 4px 4px;border-radius:10px;width:fit-content;'> $message </p>  "; 
+            }         
 
         }
     }

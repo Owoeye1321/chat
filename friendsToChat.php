@@ -3,7 +3,9 @@ require('head.html');
 ?>
 <body>
 <?php  
-session_start();
+session_start();  
+if($_SESSION["name"]){
+
 require('nav.php');
 if(isset($_SESSION["name"])){
     $username = $_SESSION['name'];
@@ -23,6 +25,9 @@ if(isset($_SESSION["name"])){
             window.location='index.php';
    </script>
 "; 
-}         
+}   
+}else{
+   header("Location:index.php");
+}      
 include("footer.php")
 ?>

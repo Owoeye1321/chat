@@ -17,7 +17,7 @@ if ($conn){
         while($row = $result->fetch_assoc()){
             $username = $row["username"];
             $email = $row["email"];
-            $userId = $row["id"];
+            $userId = $row["id"]; 
             echo "
             <div id = 'friendList'>
             <div id = 'imgIcon'>

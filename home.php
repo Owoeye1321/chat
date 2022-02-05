@@ -1,5 +1,10 @@
-<?php 
-session_start();
+<?php          
+session_start();         
+if (empty($_SESSION["name"])){                           
+  header("Location:index.php");                          
+
+}
+
  require('head.html');
  require('object.php');
  $callingObjectClass = new  Database_object_oriented_index();
@@ -50,6 +55,7 @@ if($_SERVER["REQUEST_METHOD"] ==  "POST" && isset($_POST["chat"])){
 
 ?>
       
+
     <body>
          <div class = "container p-3 my-3 border " style="border-radius: 20px;background-color:pink;">
           <h3><?php 

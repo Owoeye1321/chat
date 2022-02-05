@@ -5,11 +5,31 @@ session_start();
 
 $Object_oriented_index = new Database_object_oriented_index();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username = $_POST["username"]; 
-        $password = $_POST["password"];      
-        $Object_oriented_index->login($username,$password);
-        
-             $_SESSION["name"] = $_POST["username"]; 
+        $check_connection_to_login = $Object_oriented_index->connect_to_database_function();
+        if($check_connection_to_login == true){
+            $username = $Object_oriented_index->test_data($_POST["username"]);
+            $password  = $Object_oriented_index->test_data($_POST["password"]);
+            $sql = "SELECT `id` FROM `users` WHERE `username` = '$username' AND `password` = '$password'";
+        $result = $check_connection_to_login->query($sql);
+        if($result->num_rows > 0 ){  
+            $_SESSION["name"] = $_POST["username"];
+          echo "
+          <script>       
+               alert('Logged in successfully');
+                  window.location='friendsToChat.php';
+         </script>
+     "; 
+        } else {
+       $_SESSION["Logged in"] = "Invalid details";
+     }
+     
+                 
+    
+        } else {
+            $_SESSION["err"] = "Server issues";
+           }      
+    
+            
       
 
 }

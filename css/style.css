@@ -4,6 +4,7 @@
   border-radius: 20px;
   padding: 10px 10px 10px 10px;
   width: 60%;
+  overflow: hidden;
   margin-left: 20%;
   background-color: #ffffff;
 }
@@ -11,11 +12,12 @@ h2 {
   color: black;
 }
 #mainchat {
+  width: 104%;
   height: 300px;
   border-radius: 20px;
   overflow-y: scroll;
+  scrollbar-width: none;
   margin: 10px 20px 10px 20px;
-  box-shadow: 2px 2px 2px 2px lightblue;
   padding: 10px 20px 10px 20px;
 }
 #sign_up {
