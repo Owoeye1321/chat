@@ -8,6 +8,16 @@
   margin-left: 20%;
   background-color: #ffffff;
 }
+#grouparea {
+  color: black;
+  height: 420px;
+  border-radius: 20px;
+  padding: 10px 10px 10px 10px;
+  width: 60%;
+  overflow: hidden;
+  margin-left: 20%;
+  background-color: #ffffff;
+}
 h2 {
   color: black;
 }

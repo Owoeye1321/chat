@@ -7,6 +7,8 @@
         <a class="nav-link" id ="navLink"  href="#">Profile</a>
      
         <a class="nav-link" id ="navLink" href="#">About</a>
+
+        <a class="nav-link" id ="navLink" href="#">Settings</a>
         
         <a class="nav-link" id ="navLink" href="logout.php">LogOut</a>
       

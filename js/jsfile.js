@@ -1,22 +1,32 @@
 if(window.history.replaceState){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
          window.history.replaceState(null,null,window.location.href)
            }    
-   var xhttp;
-  xhttp = new XMLHttpRequest();
+   const xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
     document.getElementById("demo").innerHTML = this.responseText;
     }  
 };
-  xhttp.open("GET", "friendsToChatCall.php");
-  xhttp.send();
-  var xhttp;
-  xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
+  xhttp.open("GET", "friendsToChatCall.php")
+  xhttp.send()
+  const fetchMessage = new XMLHttpRequest();
+  fetchMessage.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
     document.getElementById("mainchat").innerHTML = this.responseText;
     }  
 };
-  xhttp.open("GET", "fetchmessage.php");
-  xhttp.send();
-                                                                                    
+  fetchMessage.open("GET", "fetchmessage.php")
+  fetchMessage.send()
+
+function reqGroupForm(){
+  const fetchGroupForm = new XMLHttpRequest()
+  fetchGroupForm.onreadystatechange = function(){
+    if (this.readyState == 4 && this.status == 200){
+      document.getElementById("groupchat").innerHTML = this.responseText
+    }
+  }
+  fetchGroupForm.open("GET","groupForm.php")
+  fetchGroupForm.send()
+}
+
+                   
