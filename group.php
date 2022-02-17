@@ -2,7 +2,11 @@
 session_start();
 require('head.html');
 require('nav.php');
-$username = $_SESSION['name'];
+require('object.php');
+ $sender =  $_SESSION["name"];
+
+
+
 ?>
 
 <body>
@@ -13,14 +17,13 @@ $username = $_SESSION['name'];
 
          <div class = "container p-3 my-3 border " style="border-radius: 20px;background-color:pink;">
           <h3><?php 
-     echo $username;
+     echo $sender;
      ?></h3>
             
     <div id = "chatarea">
      <h3>Groups</h3>
       <div id = "groupchat">
-        <p >Chat Interface </p>
-        <p >Chat Interface</p>
+        <Strong >The group you joined would be displyed here</Strong><br>
         <button class ="btn btn-success" onClick = reqGroupForm()> Create Group</button>
 
       </div>
