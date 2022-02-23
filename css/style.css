@@ -40,6 +40,12 @@ h2 {
   padding: 5px 5px 1px 5px;
   background-color: #ffffff;
 }
+#groupList {
+  height: 50px;
+  width: 60%;
+  padding: 5px 5px 1px 5px;
+  background-color: #ffffff;
+}
 #imgIcon {
   height: 100%;
   float: left;
@@ -60,4 +66,11 @@ hr {
 }
 #navLink:hover {
   color: #ffffff;
+}
+#formDiv {
+  overflow: hidden;
+}
+#formScroll {
+  overflow-y: scroll;
+  scrollbar-width: none;
 }

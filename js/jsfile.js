@@ -28,5 +28,21 @@ function reqGroupForm(){
   fetchGroupForm.open("GET","groupForm.php")
   fetchGroupForm.send()
 }
+const groupCall = new XMLHttpRequest()
+groupCall.onreadystatechange = function(){
+  if(this.readyState == 4 && this.status == 200){
+document.getElementById("available_groups").innerHTML = this.response;
+  }
+}
+groupCall.open("GET", "groupToChatCall.php")
+groupCall.send()
 
-                   
+
+const myGroups = new XMLHttpRequest()
+myGroups.onreadystatechange = function(){
+  if(this.readyState == 4 && this.status == 200){
+document.getElementById("myGroups").innerHTML = this.response;
+  }
+}
+myGroups.open("GET", "groupToChatCall.php")
+myGroups.send()

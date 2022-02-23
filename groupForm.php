@@ -62,7 +62,10 @@ $filetype = strtolower(pathinfo($destination,PATHINFO_EXTENSION));
 }
 
 
-echo '<center style = "margin-top:60px";>
+echo '
+<div id = "groupchat"> 
+<center style = "margin-top:60px";>
+
 <form method = "POST" action='; echo htmlspecialchars($_SERVER["PHP_SELF"]); echo' enctype ="multipart/form-data">
       <input style="width:200px;margin-bottom: 10px;" required name = "group_name"  class="form-control" placeholder="Group name" type = "text"/>
       
@@ -71,12 +74,15 @@ echo '<center style = "margin-top:60px";>
       <input type = "file" style="width:200px;margin-bottom: 10px;" required name = "profile_pic"  /><br>
       <i style="color:red; font-size:13px;">'; if (isset($_SESSION["errForGroup"])) {
         echo $_SESSION["errForGroup"];}
-echo '</i><br>
-      <input class="btn btn-success" name ="submitForm" type="submit" value="Finish" style="margin-top: 5px;margin-right:5%;" />
+echo '</i>
+      <input class="btn btn-success" name ="submitForm" type="submit" value="Finish" style="margin-top: 5px;width:200px;" />
     
 
     </form>
+
     </center>
+</div>
+
 ';
 
 

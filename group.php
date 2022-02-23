@@ -21,10 +21,18 @@ require('object.php');
      ?></h3>
             
     <div id = "chatarea">
-     <h3>Groups</h3>
+      <div id = "available_groups" >
+        <h3>Groups</h3>
+      </div>
+     
       <div id = "groupchat">
-        <Strong >The group you joined would be displyed here</Strong><br>
-        <button class ="btn btn-success" onClick = reqGroupForm()> Create Group</button>
+        <Strong >The group you created would be displyed here</Strong><br>
+        <div id = "fetch">
+          <button class ="btn btn-success" onClick = reqGroupForm()> Create Group</button>
+
+        </div>
+
+        
 
       </div>
       
@@ -39,4 +47,19 @@ require('object.php');
 <?php
 
 include("footer.php")
+?>
+<?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+require('head.html');
+?>
+<body>
+<?php  
+    echo "
+    
+      <div class = 'container p-3 my-3 border' style='border-radius: 20px;background-color:pink;' id = 'available_groups'>
+    <strong style ='font-size:20px;margin-left:10px;'>     Dear  $sender</strong> 
+           
+             
+       </div>
+                      
+   ";
 ?>
