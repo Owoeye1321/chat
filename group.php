@@ -20,7 +20,7 @@ require('object.php');
      echo $sender;
      ?></h3>
             
-    <div id = "chatarea">
+    <div id = "grouparea">
       <div id = "available_groups" >
         <h3>Groups</h3>
       </div>
@@ -50,16 +50,4 @@ include("footer.php")
 ?>
 <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 require('head.html');
-?>
-<body>
-<?php  
-    echo "
-    
-      <div class = 'container p-3 my-3 border' style='border-radius: 20px;background-color:pink;' id = 'available_groups'>
-    <strong style ='font-size:20px;margin-left:10px;'>     Dear  $sender</strong> 
-           
-             
-       </div>
-                      
-   ";
 ?>

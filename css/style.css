@@ -10,9 +10,9 @@
 }
 #grouparea {
   color: black;
-  height: 420px;
+  height: 430px;
   border-radius: 20px;
-  padding: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 40px;
   width: 60%;
   overflow: hidden;
   margin-left: 20%;
@@ -23,12 +23,21 @@ h2 {
 }
 #mainchat {
   width: 104%;
-  height: 300px;
+  height: auto;
   border-radius: 20px;
   overflow-y: scroll;
   scrollbar-width: none;
   margin: 10px 20px 10px 20px;
   padding: 10px 20px 10px 20px;
+}
+#groupchat {
+  width: 104%;
+  height: 300px;
+  border-radius: 20px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  margin: 5px 20px 10px 20px;
+  padding: 10px 20px 50px 20px;
 }
 #sign_up {
   text-decoration: none;
@@ -37,11 +46,12 @@ h2 {
   height: 50px;
   width: 60%;
   margin-left: 20%;
+  border-radius: 20px;
   padding: 5px 5px 1px 5px;
   background-color: #ffffff;
 }
 #groupList {
-  height: 50px;
+  height: 40px;
   width: 60%;
   padding: 5px 5px 1px 5px;
   background-color: #ffffff;
