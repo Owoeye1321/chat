@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class = "container p-3 my-3 text-white" style="border-radius: 20px;">
 <center>
-                   <div style="width:270px; height: 270px;padding-top: 20px;background-color: #ffc8f8f8;border-radius: 10px;margin-top:70px"><p style="color:#000000;">Sign in to chat</p>
+                   <div class = "bg-light" style="width:270px; height: 270px;padding-top: 20px;border-radius: 10px;margin-top:70px"><p style="color:#000000;">Sign in to chat</p>
                         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                                         <input class="form-control" type="text" required placeholder="Username" name="username" style="margin-bottom: 10px; border-radius:5px;width:200px">
                                         <input class="form-control" type="email" required placeholder="Email" name="email" style="margin-bottom: 10px; border-radius:5px;width:200px">

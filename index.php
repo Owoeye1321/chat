@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                  
     
         } else {
-            $_SESSION["err"] = "Server issues";
+            $_SESSION["err_log"] = "Server issues";
            }      
     
             
@@ -39,12 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <center>  
 <div class="animate animated animate zoomInUp">
   
-<div style="width:270px; height: 270px;padding-top: 20px;background-color: #ffc8f8f8;border-radius: 10px;margin-top:100px"><p style="color:#000000;">Login to chat</p>
+<div class ="bg-light" style="width:270px; height: 270px;padding-top: 20px;border-radius: 10px;margin-top:100px"><p style="color:#000000;">Login to chat</p>
                         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                                         <input style="width:200px;margin-bottom: 10px; border-radius:5px;" class="form-control" type="text" required placeholder="Username" name="username" >
                                         <input style="width:200px; border-radius:5px;" class="form-control" type="password" required placeholder="Password" name="password">
-                                        <i style="color:red; font-size:13px;"><?php if (isset($_SESSION["err"])) {
-                                               echo $_SESSION["err"];
+                                        <i style="color:red; font-size:13px;"><?php if (isset($_SESSION["err_log"])) {
+                                               echo $_SESSION["err_log"];
                                         } elseif(isset($_SESSION["Logged in"])){echo $_SESSION["Logged in"];}
                                          ?></i><br>
                                         <input class="btn btn-outline-primary" type="submit" value="Submit" style="width: 195px;border-radius:5px;"><br>
@@ -63,4 +63,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 
 <?php
 include("footer.php")
-?>?>
+?>

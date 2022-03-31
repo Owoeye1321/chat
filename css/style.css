@@ -2,17 +2,25 @@
   color: black;
   height: 420px;
   border-radius: 20px;
-  padding: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 20px;
   width: 60%;
   overflow: hidden;
   margin-left: 20%;
   background-color: #ffffff;
 }
-#grouparea {
-  color: black;
-  height: 430px;
+#mainchat {
+  width: 104%;
+  height: 280px;
   border-radius: 20px;
-  padding: 10px 10px 10px 40px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  margin-bottom: 10px;
+  padding: 10px 20px 0px 10px;
+}
+#grouparea { color: black;
+  height: 420px;
+  border-radius: 20px;
+  padding: 10px 10px 10px 20px;
   width: 60%;
   overflow: hidden;
   margin-left: 20%;
@@ -21,24 +29,33 @@
 h2 {
   color: black;
 }
-#mainchat {
-  width: 104%;
-  height: auto;
+#available_groups{width: 104%;
+  height: 280px;
   border-radius: 20px;
   overflow-y: scroll;
   scrollbar-width: none;
-  margin: 10px 20px 10px 20px;
-  padding: 10px 20px 10px 20px;
+  margin-bottom: 10px;
+  padding: 10px 20px 0px 10px;
 }
-#groupchat {
-  width: 104%;
-  height: 300px;
+#groupchat { width: 104%;
+  height: 280px;
+  width: 106%;
   border-radius: 20px;
   overflow-y: scroll;
   scrollbar-width: none;
-  margin: 5px 20px 10px 20px;
-  padding: 10px 20px 50px 20px;
+  margin-bottom: 60px;
+  padding: 10px 20px 0px 10px;
 }
+#groupChatMessage{
+  width: 104%;
+  height: 250;
+  border-radius: 20px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  margin: 10px 20px 10px 10px;
+  padding: 0px 20px 10px 10px;
+}
+
 #sign_up {
   text-decoration: none;
 }
@@ -50,6 +67,17 @@ h2 {
   padding: 5px 5px 1px 5px;
   background-color: #ffffff;
 }
+@media (max-width: 520px) {
+  #friendList {
+    height: 50px;
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 20px;
+    padding: 5px 5px 1px 5px;
+    background-color: #ffffff;
+  }
+
+}
 #groupList {
   height: 40px;
   width: 60%;
@@ -60,6 +88,7 @@ h2 {
   height: 100%;
   float: left;
   width: fit-content;
+  
 }
 #info {
   float: right;
@@ -76,6 +105,7 @@ hr {
 }
 #navLink:hover {
   color: #ffffff;
+  border-bottom: 3px solid lightblue;
 }
 #formDiv {
   overflow: hidden;
