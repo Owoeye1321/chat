@@ -35,6 +35,29 @@ if(empty( $_SESSION['name']))
 
 
             }
+            elseif ($_SERVER["REQUEST_METHOD"] = "POST" && isset($_POST["sendCoomment"]) ) 
+            {
+            //     # code...
+                      $get_comment = $_POST["comment"];
+                    $get_commentor = $_SESSION['name'];
+                   $get_feed = $_GET["feed_id"];
+                $feeder = $_GET['feeder'];
+           
+               $sql = "INSERT INTO `comment` (`comment`, `commentor`,`feed`, `feeder`)
+               VALUES ('$get_comment', '$get_commentor', '$get_feed', '$feeder')";
+               $result = $get_connection_to_database->query($sql);
+               if (!$result) {
+                  echo 'an error has occured';
+                   
+               }
+               else {
+                   echo '<script>
+                   alert("commented successfully")
+                   
+                          </script>';
+               }
+
+            }
          
         }
 
