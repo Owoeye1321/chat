@@ -33,11 +33,11 @@ if ($conn)
                         $getSenderDifferenceMessageColor = $row['sender'];
                         if($sender ==  $getSenderDifferenceMessageColor)
                         {
-                            echo "  <p style ='margin-bottom:4px;background-color:lightblue;padding:2px 4px 4px 4px;border-radius:10px;width:fit-content;'> $message </p>  ";                
+                            echo "  <p style ='margin-bottom:4px;background-color:lightblue;padding:5px 15px 10px 10px ;border-radius:10px;width:fit-content;margin-left:auto;'> $message </p>  ";                
                         }
                         elseif ($getSenderDifferenceMessageColor !== $sender)
                         {
-                            echo "  <p style ='margin-bottom:4px;background-color:lightgreen;padding:2px 4px 4px 4px;border-radius:10px;width:fit-content;'> $message </p>  "; 
+                            echo "  <p style ='margin-bottom:4px;background-color:lightgreen;padding:5px 15px 10px 10px ;border-radius:10px;width:fit-content;margin-left:-5px;'> $message </p>  "; 
                         }         
 
                     }

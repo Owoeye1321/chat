@@ -224,8 +224,9 @@
                 $sql = "INSERT INTO `messages` (`sender`,`receiver`,`message`) VALUES ('$sender','$receiver','$message')";
                 $result = $conn->query($sql);
                 if($result > 0)
-                {                                                  
-                  echo "<script> alert ('$receiver would receive your message')</script>";     
+                {            
+                  $_SESSION['message status'] = 'logged in';                                      
+                  // echo "<script> alert ('$receiver would receive your message')</script>";     
                 }
                 else
                 {
@@ -236,7 +237,7 @@
               }
         }
 
-        public function news_feed($sender, $status, $destination, $size, $source)
+        public function news_feed($sender, $status, $destination, $size, $source,$date)
         {
             $connect_to_database = $this->connect_to_database_function();
 
@@ -273,8 +274,8 @@
                              $upload_image_feed= $destination;
                                 $check_conenection_again = $this->connect_to_database_function();
 
-                                $sql = "INSERT INTO `feed` (`status`, `image`, `sender`) 
-                                        VALUES('$status', '$upload_image_feed', '$sender') ";
+                                $sql = "INSERT INTO `feed` (`status`, `image`, `sender`, `date`) 
+                                        VALUES('$status', '$upload_image_feed', '$sender', '$date') ";
                                         $result = $connect_to_database->query($sql);
                                         if($result > 0)
                                         {

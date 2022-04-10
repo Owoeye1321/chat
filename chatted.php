@@ -11,7 +11,7 @@ require('head.html');
    if ($connect){
     $user =  $_SESSION['name'];
 
-      $sql = "SELECT DISTINCT `receiver` FROM `messages`  WHERE    `sender` = '$user'  AND  `receiver` != '$user' ";
+      $sql = "SELECT DISTINCT `receiver` FROM `messages`  WHERE  `sender` = '$user'  AND  `receiver` != '$user' ";
       $result = $connect->query($sql);
       if ($result->num_rows > 0)
       {
@@ -26,16 +26,30 @@ require('head.html');
                         {
                             while ($innerRow = $innerResult->fetch_assoc()) 
                             {
+                                //get last chatted id number to get new messages
+                                $sql = "SELECT `id`, `message` from `messages` WHERE `sender` = '$chatted' AND `receiver` = '$user'  ORDER BY `id` DESC LIMIT 1";
+                                $idResult = $connect->query($sql);
+                                if($idResult->num_rows > 0){
+                                    while ($idRow = $idResult->fetch_assoc()) {
+                                        # code...
+                                        $sendingId = $idRow['id'];
+                                        $getMessage = $idRow['message'];
+                                    
+
+                                    }
+                                }
+
                                         $userId = $innerRow['id'];
                                         $email = $innerRow['email'];
                                         
-                                        $sql = "SELECT `message` FROM `messages` WHERE `receiver` = '$chatted' ORDER BY `id` DESC LIMIT 1";
+                                        $sql = "SELECT `message`, `id` FROM `messages` WHERE `receiver` = '$chatted' AND `sender` = '$user' ORDER BY `id` DESC LIMIT 1";
                                         $innestResult = $connect->query($sql);
                                         if ($innestResult ->num_rows > 0)
                                         {
                                             while ($innestRow = $innestResult->fetch_assoc()) 
                                             {
                                                     $message =  $innestRow['message'];
+                                                    $myLastTextId = $innestRow['id'];
 
 
                                                     $sql = "SELECT  `image` from `profile` WHERE `username` = '$chatted' ";
@@ -46,38 +60,85 @@ require('head.html');
                                                         while ($innerRow  = $innerResult->fetch_assoc()) 
                                                         {
                                                             $get_current_user_image = $innerRow['image'];
+                                                            if ( isset($sendingId ) )
+                                                             {
+                                                                # code...
+                                                                 if ($sendingId > $myLastTextId )
+                                                                 {
+                                                                        $newMessage = $sendingId - $myLastTextId;
+                                                                           $lastMessage = $getMessage;
+                                                                 }elseif($sendingId < $myLastTextId)
+                                                                 {
+                                                                     $lastMessage = $message;
+                                                                        $newMessage = null;
+                                                                        $sendingId = null; 
+                                                            }
+                                                            }
+                                                       
+                                                       
                                                             echo "
                                                             <div id = 'friendList'>
                                                             <div id = 'imgIcon'>
                                                                     <a href = 'home.php?userId=$userId ' style = 'text-decoration:none;color:black;'>
-                                                                    <img src='$get_current_user_image' alt='icon' style = 'width:30px;height:35px;border-radius:20%;float:left;margin:1px 10px 4px 4px;'> </a>               
+                                                                    <img src='$get_current_user_image' alt='icon' style = 'width:30px;height:35px;border-radius:50%;float:left;margin:1px 10px 4px 4px;'> </a>               
                                                             </div>
                                                             <div id = 'sep' >
                                                                 <strong ><a href = 'home.php?userId=$userId ' style = 'text-decoration:none;color:black;'>$chatted</a></strong>
-                                                                <p style = 'font-size:10px;'>$message</p>
+                                                                <p style = 'font-size:10px;'>"; 
+                                                                if(isset($lastMessage)) echo $lastMessage;
+                                                                echo "</p>
                                                             </div>
-                                                            <div id = 'info'>
-                                                                <center>   <p style='background-color:Lightgreen;border-radius:50%;width: 20px;height: 20px;margin-top:10px;'>!</p> </center>
-                                                            </div>
+                                                            <div id = 'info' style = 'float:right;'>";
+                                                            if ($newMessage) {
+                                                                # code...
+                                                                echo "
+                                                           
+                                                                <center>   <p style='background-color:Lightgreen;border-radius:50%;width: 20px;height: 20px;margin-top:10px;font-size:13px;color:white'></p> </center>";
+                                                           
+                                                            }
+                                                            echo " </div>
                                                          </div>
                                                          <center> <hr></center> ";
                                                         
                                                         }
                                                 }
                                                 else
-                                                {
+                                                {if ( isset($sendingId ) )
+                                                    {
+                                                       # code...
+                                                        if ($sendingId > $myLastTextId )
+                                                        {
+                                                               $newMessage = $sendingId - $myLastTextId;
+                                                                  $lastMessage = $getMessage;
+                                                        }elseif($sendingId < $myLastTextId)
+                                                        {
+                                                            $lastMessage = $message;
+                                                               $newMessage = null;
+                                                               $sendingId = null; 
+                                                   }
+                                                   }
+                                              
                                                     echo "
                                                     <div id = 'friendList'>
                                                     <div id = 'imgIcon'>
                                                             <a href = 'home.php?userId=$userId ' style = 'text-decoration:none;color:black;'>
-                                                            <img src='images/user.png' alt='icon' style = 'width:30px;height:35px;border-radius:20%;float:left;margin:1px 10px 4px 4px;'> </a>               
+                                                            <img src='images/user.png' alt='icon' style = 'width:30px;height:35px;border-radius:50%;float:left;margin:1px 10px 4px 4px;'> </a>               
                                                     </div>
                                                     <div id = 'sep' >
                                                         <strong ><a href = 'home.php?userId=$userId ' style = 'text-decoration:none;color:black;'>$chatted</a></strong>
-                                                        <p style = 'font-size:10px;'>$message</p>
+                                                        <p style = 'font-size:10px;'>"; 
+                                                        if(isset($lastMessage)) echo $lastMessage;
+                                                        echo "</p>
                                                     </div>
-                                                    <div id = 'info'>
-                                                        <center>   <p style='background-color:Lightgreen;border-radius:50%;width: 20px;height: 20px;margin-top:10px;'>!</p> </center>
+                                                    <div id = 'info' style = 'float:right;'>";
+                                                    if ($newMessage) {
+                                                        # code...
+                                                        echo "
+                                                   
+                                                        <center>   <p style='background-color:Lightgreen;border-radius:50%;width: 20px;height: 20px;margin-top:10px;font-size:13px;color:white'> </p> </center>";
+                                                   
+                                                    }
+                                                    echo "
                                                     </div>
                                             </div>
                                         <center> <hr></center> ";  
@@ -101,5 +162,4 @@ require('head.html');
          
        
       }
-   
 ?>

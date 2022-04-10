@@ -109,7 +109,7 @@ if (empty($_SESSION["name"])){
                          ?>
                          </p>
                             
-                <div id = "grouparea" style = 'width:75%;margin-left:13%;'>
+                <div id = "grouparea" style = 'width:75%;margin-left:13%;' >
                       <div id = "available_groups">
                       </div>
                           

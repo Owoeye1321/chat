@@ -11,23 +11,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $password  = $Object_oriented_index->test_data($_POST["password"]);
             $sql = "SELECT `id` FROM `users` WHERE `username` = '$username' AND `password` = '$password'";
         $result = $check_connection_to_login->query($sql);
-        if($result->num_rows > 0 ){  
+        if($result->num_rows > 0 )
+        {  
             $_SESSION["name"] = $_POST["username"];
-          echo "
-          <script>       
-               alert('Logged in successfully');
-                  window.location='friendsToChat.php';
-         </script>
-     "; 
-        } else {
-       $_SESSION["Logged in"] = "Invalid details";
-     }
-     
-                 
+            
+
+            $sql = "UPDATE `users` SET `status` = 'Online' WHERE `username` = '$username' AND `password` = '$password'";
+            $innerResult = $check_connection_to_login->query($sql);
+            if($innerResult > 0 )echo " <script> window.location='newsFeed.php';</script>"; 
+        } 
+        else
+         {
+              $sql = "UPDATE `users` SET `status` = 'Offline' WHERE `username` = '$username' AND `password` = '$password'";
+            $innerResult = $check_connection_to_login->query($sql);
+            if($innerResult > 0 )$_SESSION["Logged in"] = "Invalid details";
+        }
     
-        } else {
-            $_SESSION["err_log"] = "Server issues";
-           }      
+        } else { $_SESSION["err_log"] = "Server issues"; }      
     
             
       

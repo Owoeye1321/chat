@@ -36,14 +36,14 @@ if(isset($_SESSION["friendUsername"]))
                                                  
                                                   <center>
                                                          <img alt = 'icon' src = '$get_image'  width = '200px' height = '200px'style = 'border-radius:50%;' />
-                                                         <p style = 'margin-top:20px;'> Bio :$get_bio</p>
+                                                         <p style = 'margin-top:20px;color:white;'> Bio :$get_bio</p>
                                                  </center>      
                                      </div>
                                       <div  class = ' col-sm-12 col-md-6 col-lg-6 ' style = ' padding:90px 0px 0px 10px; '>
                                              <center>
-                                             <p style = 'margin-top:20px;'> Username :$get_username</p>
-                                             <p style = 'margin-top:20px;'> Email :$get_email</p>
-                                              <p style = 'margin-top:20px;'> Temprament :$get_temprament</p>
+                                             <p style = 'margin-top:20px;color:white;'> Username :$get_username</p>
+                                             <p style = 'margin-top:20px;color:white;'> Email :$get_email</p>
+                                              <p style = 'margin-top:20px;color:white;'> Temprament :$get_temprament</p>
                                              </center>   
                                      </div>
                                       

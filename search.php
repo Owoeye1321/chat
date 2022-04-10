@@ -98,8 +98,8 @@ if(empty($_SESSION['name']))
                                                             </div>
                                                             <div style = 'width:100%'>
                                                                 <img alt = 'icon' src = '$get_feed_image' style = 'width:330px;height:190px;border-radius:30px;'/>
-                                                                <p style = 'width:100%;font-size:12px;float;left;margin-top:20px;margin-left:-120px'>$get_poster : $get_feed_status </p>
-                                                                
+                                                                <div style = 'font-size:12px;margin-bottom:3px;text-align:left;margin-top:10px;'>$get_poster:
+                                                                $get_feed_status </div>
                 
                                                             </div>
                                                             <div>

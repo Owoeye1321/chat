@@ -28,18 +28,19 @@ if ($conn)
             $getSenderDifferenceMessageColor = $row['sender'];
             if($sender ==  $getSenderDifferenceMessageColor)
             {
-                echo "  <div style ='background-color:lightblue;padding:2px 4px 0px 4px;border-radius:10px;width:fit-content;'>
-                <span style = font-size:10px;>You</span>
+                echo " 
+                 <div style ='background-color:lightblue;padding:9px 15px 0px 12px; border-radius:10px;width:fit-content;margin-left:auto;  '>
+                <span style = 'font-size:10px;float:right'>You</span>
                 <br>
-                <p style = 'margin-top:-5px;font-size:13px;'> $message </p> 
+                <p style = 'margin-top:-9px;font-size:13px;padding-bottom:5px;'> $message </p> 
                 </div> ";                
             }
             elseif ($sender !== $getSenderDifferenceMessageColor)
             {
-                echo "  <div style ='background-color:lightgreen;padding:2px 4px 0px 4px;border-radius:10px;width:fit-content;'>
+                echo "  <div style ='background-color:lightgreen;padding:9px 15px 0px 12px ;border-radius:10px;width:fit-content;'>
                 <span style = 'font-size:10px;'>$getSenderDifferenceMessageColor</span>
                 <br>
-                <p style = 'margin-top:-5px;font-size:13px;'> $message </p> 
+                <p style = 'margin-top:-2px;font-size:13px;padding-bottom:5px;'> $message </p> 
                 </div> ";
              }         
 

@@ -15,6 +15,7 @@
                    $get_poster =  $row['sender'];
                    $get_feed_image = $row['image'];
                     $get_feed_status = $row['status'];
+                    $get_date = $row['date'];
                    
                     $sql = "SELECT DISTINCT `image`,`username`,`email` FROM `profile` WHERE `username` = '$get_poster'";
                     $innerResult = $conn->query($sql);
@@ -35,17 +36,20 @@
                                 echo "
                                     <center>
                                         <div style = 'margin-top:20px; height:450px;width:400px;border-radius:20px; padding:5px 15px 15px 10px;' class = 'bg-light'>
-                                                <div style = 'margin-top:15px;margin-bottom:30px;'>
-                                                        <img src='$get_poster_profile_image' alt='icon' style = 'width:40px;height:40px;border-radius:50%;margin:1px 10px 0px 4px;float:left;'>
+                                                <div style = 'margin-top:15px;margin-bottom:30px;width:100%;'>
+                                                        <img src='$get_poster_profile_image' alt='icon' style = 'width:10%;height:40px;border-radius:50%;margin:1px 10px 0px 4px;float:left;'>
                                                     
-                                                        <div style = 'float:left;font-size:12px;margin-bottom:3px;text-align:left;'>$get_poster_profile_username <br>
+                                                        <div style = 'float:left;font-size:12px;margin-bottom:3px;text-align:left;width:70%;'>$get_poster_profile_username <br>
                                                              $get_poster_profile_email<br><br>$get_poster : $get_feed_status 
+                                                        </div>
+                                                        <div style = 'width:13%; float:right;'>
+                                                        <i style = 'font-size:10px;'> $get_date </i>
                                                         </div>
 
                                                 </div>
                                             
                                                 <div style = 'width:100%'>
-                                                    <img alt = 'icon' src = '$get_feed_image' style = 'width:330px;height:190px;border-radius:30px;'/>
+                                                    <img alt = 'icon' src = '$get_feed_image' style = 'width:90%;height:190px;border-radius:30px;'/>
                                                     
                                                 </div>
                                                
@@ -54,17 +58,18 @@
                                                                   $innestResult = $conn->query($sql);
                                                             if ($innestResult->num_rows > 0)
                                                              {
-                                                # code...
+                                                                 # code...
                                                                     while ($innestRow = $innestResult->fetch_assoc()) 
                                                                     {
                                                                         $get_comment = $innestRow["comment"];
-                                                                        $get_commentor = $innestRow['commentor'];
+                                                                              $get_commentor = $innestRow['commentor'];
                                                                         # code...
                                                                         
                                                                         echo " 
-                                                                        <div style = 'height:50px;width:100%;float:left;font-size:12px;text-align:left;margin-top:15px;'><p>Comments <br>
-                                                                                $get_commentor:$get_comment</p><br>
-                                                                                
+                                                                  <div style = 'width:100%;float:left;font-size:12px;text-align:left;margin-top:15px;'><span>Comments </span><br>
+                                                                      <span> $get_commentor:$get_comment</span><br>
+                                                                        <a href = 'fetchComment.php?feedStatus=$get_feed_status&feedPoster=$get_poster' 
+                                                                           style = 'text-decoration:none; color:black;font-size:15px;'><p style = 'color:lightgrey;'><i>view all comments</i></p></a>
 
                                                                                     <form method = 'post' action='newsFeed.php?feed_id=$get_feed_status&feeder=$get_poster'>
                                                                                             <div style = 'margin-left:10px'>

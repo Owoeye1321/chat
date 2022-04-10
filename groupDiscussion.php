@@ -90,18 +90,18 @@ if($_SERVER["REQUEST_METHOD"] ==  "POST" && isset($_POST["groupchat"]))
                  echo $username;?>
                 </p>
             
-             <div id = "grouparea">
+             <div id = "grouparea" class= 'bg-light'>
                         <h3>
                               <?php echo $group_name; ?>
                         </h3>
                         <p><?php echo $group_desc;?>
                         </p>
-                    <div id = "groupChatMessage">
+                    <div id = "groupChatMessage" style = 'background-color:black;width:100%;padding-top:10px;margin-left:-5px'>
                          <p >Your group messages would be displayed here. </p>
 
                     </div>
                   <form method = "POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                     <input class="form-control" name = "groupchat" placeholder= "Chat here" style="margin-top: 5px; width:65%;margin-left:20px;float:left;border-radius:20px;"/>
+                     <input class="form-control" name = "groupchat" placeholder= "Chat here" style="margin-top: 5px; width:70%;margin-left:20px;float:left;border-radius:20px;"/>
                          <input type="image" src = "images/send-icon.png" style=";margin-top:1px;width :40px; height:40px;" />
    
                   </form> 

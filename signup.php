@@ -29,18 +29,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                  if ($result == true) {
                    $_SESSION["err"] = "User already exist";
                  } else {          
-                $sql = "INSERT INTO `users` (`username`,`password`,`email`) VALUES ('$username','$password','$email');";
+                $sql = "INSERT INTO `users` (`username`,`password`,`email`,`status`) VALUES ('$username','$password','$email','Online');";
                 $result = $check_connection_to_signup->query($sql);
                 if ($result > 0) {  
                     $_SESSION["name"] = $_POST["username"];
-                  // $_SESSION["signed up"] = "<span style = 'color:green;'>Signed up successfully</span>";
-                      echo "
-                     <script>
-                      
-                          alert('Signed up successfully');
-                             window.location='friendsToChat.php';                            
-                    </script>
-                "; 
+                   $sql = "UPDATE `users` SET `status` = 'Online' WHERE `username` = '$username' AND `password` = '$password'";
+                  $innerResult = $check_connection_to_signup->query($sql);
+                  if($innerResult > 0 )echo " <script> window.location='newsFeed.php';</script>";  
                   } else {
                   $_SESSION["signed up"] = "Unable to sign up ";
                 }
