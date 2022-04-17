@@ -115,9 +115,8 @@ if (empty($_SESSION["name"])){
                           
                     
                       <div id = "groupchat" style ="margin-left:-20px;">
-                                 <Strong >The group you created would be displyed here</Strong><br>
                                   <div id = "fetch">
-                                        <button class ="btn btn-success" onClick = reqGroupForm() > Create Group</button>
+                                        <button class ="btn btn-primary" onClick = reqGroupForm() > Create Group</button>
                                           <br><i style="color:red; font-size:13px;">
                                           <?php if (isset($_SESSION["errForGroup"])) {
                                             echo $_SESSION["errForGroup"];}

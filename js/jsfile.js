@@ -57,7 +57,7 @@ fetch_chat.onreadystatechange = function()
   {
      document.getElementById("fetch_news_feed").innerHTML = this.responseText;
   }  
-  };
+  }
         fetch_news_feed.open("GET", "fetchFeed.php")
         fetch_news_feed.send()
 

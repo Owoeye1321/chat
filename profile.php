@@ -193,17 +193,18 @@ if($result->num_rows > 0 )
 
                                     <div >
 
-                                        <form method = 'post' action='newsFeed.php'>
+                                    <form method = 'post' action='newsFeed.php?feed_id=$get_feed_status&feeder=$get_poster'
                                             <div style = 'margin-left:10px'>
                                         
                                                         
-                                                <input class='form-control' name = 'chat' placeholder= 'Comment here' 
-                                                        style='margin-top: 5px; width:66%;margin-left:10px;float:left;margin-right:-70px;border-radius:40px;'/>
-                                                        <input type='image' name = 'send_comment_feed' src = 'images/feedSend.png' style=';margin-top:10px;width :30px; height:30px;' />
+                                            <input class='form-control' name = 'comment' required placeholder= 'Comment here' 
+                                            style='margin-top: 5px; width:66%;margin-left:10px;float:left;margin-right:-70px;border-radius:40px;'/>
+                                            <input class = 'btn btn-primary' type='submit' value = 'Comment'  name = 'sendCoomment' 
+                                            style='font-size:15px;margin-top:0px;width :90px; height:40px;float:right;margin-left:-10px;padding-bottom:10px;' />
                                             </div>
                                                 
                                         </form> 
-                                    </div>
+                                    </div>  
                                
 
 

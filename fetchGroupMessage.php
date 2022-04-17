@@ -29,7 +29,7 @@ if ($conn)
             if($sender ==  $getSenderDifferenceMessageColor)
             {
                 echo " 
-                 <div style ='background-color:lightblue;padding:9px 15px 0px 12px; border-radius:10px;width:fit-content;margin-left:auto;  '>
+                 <div style ='background-color:lightblue;padding:9px 5px 0px 12px; border-radius:10px;width:fit-content;margin-left:auto;  '>
                 <span style = 'font-size:10px;float:right'>You</span>
                 <br>
                 <p style = 'margin-top:-9px;font-size:13px;padding-bottom:5px;'> $message </p> 
@@ -37,7 +37,7 @@ if ($conn)
             }
             elseif ($sender !== $getSenderDifferenceMessageColor)
             {
-                echo "  <div style ='background-color:lightgreen;padding:9px 15px 0px 12px ;border-radius:10px;width:fit-content;'>
+                echo "  <div style ='background-color:lightgreen;padding:2px 15px 0px 5px ;border-radius:10px;width:fit-content;'>
                 <span style = 'font-size:10px;'>$getSenderDifferenceMessageColor</span>
                 <br>
                 <p style = 'margin-top:-2px;font-size:13px;padding-bottom:5px;'> $message </p> 
