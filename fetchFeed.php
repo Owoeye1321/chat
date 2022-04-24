@@ -34,8 +34,8 @@
                          
                             
                                 echo "
-                                    <center>
-                                        <div style = 'margin-top:20px; height:450px;width:400px;border-radius:20px; padding:5px 15px 15px 10px;' class = 'bg-light'>
+                                   
+                                        <div style = 'margin-top:20px; height:450px;width:100%;border-radius:20px; padding:5px 15px 15px 10px;background-color:white;'>
                                                 <div style = 'margin-top:15px;margin-bottom:30px;width:100%;'>
                                                         <img src='$get_poster_profile_image' alt='icon' style = 'width:10%;height:40px;border-radius:50%;margin:1px 10px 0px 4px;float:left;'>
                                                     
@@ -116,7 +116,7 @@
 
 
                                             </div>
-                                    </center>";
+                                  ";
                               
                          
                         }

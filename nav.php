@@ -28,35 +28,74 @@ if ($connect->connect_error)
                       while ($row  = $result->fetch_assoc()) 
                       {
                           $get_current_user_image = $row['image'];
-                         echo " <a href = 'profile.php' style = 'text-decoration:none;color:black;float:left;'>
-                          <img src='$get_current_user_image' alt='icon' style = 'width:30px;height:35px;border-radius:50%;margin:1px 10px 0px 4px;margin-top:15px;'>
-                          </a>  ";
+                         
                       
                       }
-              }
-              else
-              {
-                  echo " <a href = 'profile.php' style = 'text-decoration:none;color:black;float:left;'>
-                  <img src='images/user.png' alt='icon' style = 'width:30px;height:35px;border-radius:20%;margin:1px 10px 0px 4px;margin-top:15px;'>
-                  </a>  ";  
               }
         }
          
  ?>
+<style>
+  #takeNav{
+  display: block;
+}
+#makeIt{
+  display: none;
+}
+@media (max-width: 520px) {
+  #takeNav{
+  display: none;
+}
+#makeIt{
+  display: block;
+}
+}
+</style>
 
 
-<div id = '' style ="padding:10px 20px 30px 10px;margin-bottom:-60px;">
+<div id = 'makeIt' style = "width:100%;height:50px;padding:5px 5px 5px 5px;"> 
+<?php
+  if ($get_current_user_image) {
+    echo " <a href = 'profile.php' style = 'text-decoration:none;color:black;float:left;height:30px;width:39px;margin-right:10px'>
+    <img src='$get_current_user_image' alt='icon' style = 'width:30px;height:30px;border-radius:50%;margin:1px 10px 5px 4px;margin-top:5px;'>
+    </a>  ";
+  } else {
+    echo " <a href = 'profile.php' style = 'text-decoration:none;color:black;float:left; ' >
+    <img src='images/user.png' alt='icon' style = 'width:30px;height:30px;border-radius:20%;margin:1px 10px 5px 4px;margin-top:5px;'>
+    </a>  ";  
+  }
+  
+  
+?>
+<form action = "search.php" method = "post"> 
+     <input name = "search" class = "form-control bg-light" required placeholder ="Search" 
+     style = "width:75%;height:35px;text-align:center;border-radius:30px;float:left;"/>
+
+   </form>   
+</div>
+<div style = "width:100%;height:50px;box-shadow: 2px 3px 3px 3px lightgray;"> 
+
+<div style ="padding:10px 20px 0px 0px;margin-bottom:-60px;width:35%;float:left; height:50px;" id = "takeNav" >
+<?php
+  if ($get_current_user_image) {
+    echo " <a href = 'profile.php' style = 'text-decoration:none;color:black;float:left;height:30px;width:39px;margin-right:10px' id = 'takeNav'>
+    <img src='$get_current_user_image' alt='icon' style = 'width:30px;height:30px;border-radius:50%;margin:1px 10px 5px 4px;margin-top:-17px;'>
+    </a>  ";
+  } else {
+    echo " <a href = 'profile.php' style = 'text-decoration:none;color:black;float:left; ' id = 'takeNav'>
+    <img src='images/user.png' alt='icon' style = 'width:30px;height:30px;border-radius:20%;margin:1px 10px 5px 4px;margin-top:-17px;'>
+    </a>  ";  
+  }
+  
+?>
    <form action = "search.php" method = "post"> 
-     <input name = "search" class = "form-control" required placeholder ="Search" 
-     style = "width:80%;height:40px;border-top:none;border-left:none;border-right:none;text-align:center;"/>
+     <input name = "search" class = "form-control bg-light" required placeholder ="Search" 
+     style = "width:45%;height:35px;text-align:center;border-radius:30px;float:left;"/>
 
-     <input class = "btn btn-primary" type = "submit" value = "Search" 
-     style = "float:right;margin-top:-40px;width:10%;font-size:12px;height:40px;padding:2px 2px 2px 2px;"/>
    </form>             
- </div><br>   
-<div>
-
-  <nav class="nav nav-tabs  navbar-expand-xl justify-content-center  bg-light navbar-dark" style = "border-bottom:none;padding:5px 0px 5px 0px ">
+      </div>
+      <div style = "width:&0%">
+  <nav class="nav nav-tabs  navbar-expand-xl justify-content-center navbar-dark" style = "border-bottom:none;padding:5px 0px 5px 0px ">
   <!-- Brand -->
   <a class="nav-link nav-item" id ="navLink" href="newsFeed.php" style = "color:black;font-size:14px;">
         <img src='images/news-icon.png' alt='icon' style = 'width:25px;height:25px;border-radius:20%;margin:1px 10px 0px 4px;'>
@@ -80,4 +119,5 @@ if ($connect->connect_error)
       
  
 </nav>
+<div>
 </div>

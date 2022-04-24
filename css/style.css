@@ -1,16 +1,10 @@
-#commentSession{
-
-
-}
-
 #chatarea {
   color: black;
   height: 420px;
   border-radius: 20px;
   padding: 10px 10px 10px 20px;
-  width: 60%;
+  width: 100%;
   overflow: hidden;
-  margin-left: 20%;
   background-color: #ffffff;
 }
 #mainchat {
@@ -60,7 +54,6 @@ h2 {
   scrollbar-width: none;
   padding: 20px 20px 10px 10px;
 }
-
 #sign_up {
   text-decoration: none;
 }
@@ -73,6 +66,9 @@ h2 {
   background-color: #ffffff;
 }
 @media (max-width: 520px) {
+  #takForMobile{
+    display:none;
+  }
   #friendList {
     height: 50px;
     width: 80%;
@@ -81,7 +77,9 @@ h2 {
     padding: 5px 5px 1px 5px;
     background-color: #ffffff;
   }
-
+  #takeNav{
+    display: none;
+  }
 }
 #groupList {
   height: 40px;
@@ -95,7 +93,6 @@ h2 {
   width: fit-content;
   
 }
-
 hr {
   width: 60%;
 }
@@ -116,4 +113,7 @@ hr {
 #formScroll {
   overflow-y: scroll;
   scrollbar-width: none;
+}
+#takForMobile{
+  display:none;
 }
