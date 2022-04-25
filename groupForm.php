@@ -7,7 +7,7 @@ if (empty($_SESSION["name"]))
 }
 echo '
 <div id = "groupchat"> 
-      <center style = "margin-top:10px; margin-left:-15%;">
+      <center style = "margin-top:10px;width:104%;">
 
           <form method = "POST" action="group.php" enctype ="multipart/form-data">
                 <input style="width:200px;margin-bottom: 10px;" required name = "group_name"  class="form-control" placeholder="Group name" type = "text"/>

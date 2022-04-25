@@ -55,7 +55,7 @@ if ($connect->connect_error)
 
 <div id = 'makeIt' style = "width:100%;height:50px;padding:5px 5px 5px 5px;"> 
 <?php
-  if ($get_current_user_image) {
+  if (isset($get_current_user_image)) {
     echo " <a href = 'profile.php' style = 'text-decoration:none;color:black;float:left;height:30px;width:39px;margin-right:10px'>
     <img src='$get_current_user_image' alt='icon' style = 'width:30px;height:30px;border-radius:50%;margin:1px 10px 5px 4px;margin-top:5px;'>
     </a>  ";
@@ -75,10 +75,10 @@ if ($connect->connect_error)
 </div>
 <div style = "width:100%;height:50px;box-shadow: 2px 3px 3px 3px lightgray;"> 
 
-<div style ="padding:10px 20px 0px 0px;margin-bottom:-60px;width:35%;float:left; height:50px;" id = "takeNav" >
+<div style ="padding:7px 20px 0px 0px;margin-bottom:-60px;width:35%;float:left; height:50px;" id = "takeNav" >
 <?php
-  if ($get_current_user_image) {
-    echo " <a href = 'profile.php' style = 'text-decoration:none;color:black;float:left;height:30px;width:39px;margin-right:10px' id = 'takeNav'>
+  if (isset($get_current_user_image)) {
+    echo " <a href = 'profile.php' style = 'text-decoration:none;color:black;float:left;height:30px;width:39px;margin-right:10px;' id = 'takeNav'>
     <img src='$get_current_user_image' alt='icon' style = 'width:30px;height:30px;border-radius:50%;margin:1px 10px 5px 4px;margin-top:-17px;'>
     </a>  ";
   } else {
@@ -94,7 +94,7 @@ if ($connect->connect_error)
 
    </form>             
       </div>
-      <div style = "width:&0%">
+      <div style = "width:&0%;margin-right:auto;">
   <nav class="nav nav-tabs  navbar-expand-xl justify-content-center navbar-dark" style = "border-bottom:none;padding:5px 0px 5px 0px ">
   <!-- Brand -->
   <a class="nav-link nav-item" id ="navLink" href="newsFeed.php" style = "color:black;font-size:14px;">

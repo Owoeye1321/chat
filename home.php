@@ -1,14 +1,19 @@
-<?php          
-session_start();         
-if (empty($_SESSION["name"]))
-{                           
-  header("Location:index.php");                          
-
+<style>
+  #takeNav{
+  display: block;
+  padding:20px 30px 50px 10px;
 }
+@media (max-width: 520px) {
+  #takeNav{
+  display: none;
+}
+}
+</style>
+<?php    
+require('head.php');
+require('object.php');             
 
-      require('nav.php');
-      require('head.html');
-      require('object.php');
+      
       $callingObjectClass = new  Database_object_oriented_index();
       $check_connection_to_database = $callingObjectClass->connect_to_database_function();
 
@@ -65,12 +70,16 @@ if (empty($_SESSION["name"]))
 
 ?>
     <body>
-          <div class = "container p-3 my-3 border bg-primary" style="border-radius: 20px;">
-              <p style = "color:white;">
+    <div class = 'row' '>
+
+<div class = "col-sm-12 col-md-4 col-lg-4" style= 'padding-top:20px;' >
+   <!-- this is the block of code for mychat in the mychat page!-->
+   <div class = " p-2 border" style="border-radius: 20px;">
+              <p style = "color:black;">
                 <?php echo $username;?>
               </p>
                           
-                <div id = "chatarea" class = 'bg-light'>
+                <div id = "chatarea" class = 'bg-white' style= 'width:100%;margin-left:0%;'>
                     
                           <strong onClick = getUserProfile() ><?php echo $friendUsername?></strong><br>
                        
@@ -96,6 +105,21 @@ if (empty($_SESSION["name"]))
                 
             
           </div>
+</div>
+
+      <div class = "col-sm-12 col-md-4 col-lg-4"  id = 'takeNav'>
+         <!-- this is the block of code for newsfeed in the mychat page!-->
+         <?php require('queryFeeds.php') ?>
+      </div>
+
+<div class = "col-sm-12 col-md-4 col-lg-4" id = 'takeNav' >
+   <!-- this is the block of code for mychat in the mychat page!-->
+   <?php require('queryGroups.php') ?>
+</div>
+
+</div>
+
+         
          
           
           

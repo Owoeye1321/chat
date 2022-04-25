@@ -1,13 +1,6 @@
 
 <?php
 session_start();    
-if (empty($_SESSION["name"])){                           
-  header("Location:index.php");                          
-
-}
-require('head.html');
-
-       
 include ("object.php");
 $callingObjectClass = new  Database_object_oriented_index();
 $conn = $callingObjectClass->connect_to_database_function();

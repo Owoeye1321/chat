@@ -1,12 +1,5 @@
-<?php          
-session_start();         
-if (empty($_SESSION["name"]))
-{                           
-  header("Location:index.php");                          
-
-}
-    require('nav.php');
-    require('head.html');
+<?php
+    require('head.php');
     require('object.php');
     $callingObjectClass = new  Database_object_oriented_index();
         $check_connection_to_database = $callingObjectClass->connect_to_database_function();
@@ -85,12 +78,39 @@ if($_SERVER["REQUEST_METHOD"] ==  "POST" && isset($_POST["groupchat"]))
       
 
     <body>
-<div class = "container p-3 my-3 border bg-primary" style="border-radius: 20px;">
-                <p style="color:white;"><?php 
+    <div class = 'row' '>
+
+<div class = "col-sm-12 col-md-4 col-lg-4" style= 'padding-top:20px;' id = 'takeNav' >
+   <!-- this is the block of code for mychat in the mychat page!-->
+              <div class = ' p-3 my-3 border  bg-white' style='border-radius: 20px;'>
+                                <strong style ='color:black;margin-left:10px;'margin-bottom:20px;'> Find Friends, <?php echo $username ?></strong> 
+                                  <div id = 'formDiv' style = 'height:600px'>
+
+                                          <div id = 'formScroll' ' style = 'height:600px'>
+                                                  <div style = 'margin-top:10px;width:100%;margin-left:0%;' id = 'demo'>
+                                                  
+                                                  </div>
+                                            </div>
+                                      </div>
+                        </div>
+
+                
+</div>
+
+      <div class = "col-sm-12 col-md-4 col-lg-4" style= 'padding-top:20px;'  id = 'takeNav'>
+         <!-- this is the block of code for newsfeed in the mychat page!-->
+         <?php require('queryFeeds.php') ?>
+      </div>
+
+<div class = "col-sm-12 col-md-4 col-lg-4" style= 'padding-top:20px;'  >
+   <!-- this is the block of code for mychat in the mychat page!-->
+  
+<div class = "container p-3 my-3 border" style="border-radius: 20px;">
+                <p style="color:black;"><?php 
                  echo $username;?>
                 </p>
             
-             <div id = "grouparea" class= 'bg-light'>
+             <div id = "grouparea" class= 'bg-white' style = 'width:100%;margin-left:0%;'>
                         <h3>
                               <?php echo $group_name; ?>
                         </h3>
@@ -110,7 +130,12 @@ if($_SERVER["REQUEST_METHOD"] ==  "POST" && isset($_POST["groupchat"]))
   
     
  </div>
-         
+    
+</div>
+
+</div>
+
+     
           
           
  <?php

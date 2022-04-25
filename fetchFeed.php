@@ -1,6 +1,7 @@
 <?php 
     require('object.php');
-    require('head.html');
+   
+      
 
             $sql = "SELECT * FROM `feed` ORDER BY `id` DESC";
             $get_object_class = new Database_object_oriented_index();

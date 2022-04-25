@@ -1,11 +1,17 @@
-<?php  
-session_start();    
-if (empty($_SESSION["name"])){                           
-  header("Location:index.php");                          
-
+<style>
+  #takeNav{
+  display: block;
+  padding:20px 30px 50px 10px;
 }
-require('head.html');
-require('nav.php');
+@media (max-width: 520px) {
+  #takeNav{
+  display: none;
+}
+}
+</style>
+<?php  
+
+require('head.php');
 require('object.php'); 
 $monitor_username = $_SESSION["name"];
 $Object = new Database_object_oriented_index();
@@ -27,28 +33,27 @@ if($check_connection_to_database)
     }
     echo
     "
-    <body>
     <div class = 'row'>
-      <div class = ' col-sm-12 col-md-6 col-lg-6 ' style = ' padding-top:150px; '>
-                 
-<form method = 'POST' action='profile.php' enctype ='multipart/form-data'> 
-                 <center>
-                          <label style = 'border-radius:50%; width:200px; height :200px;'>
-                            <img alt = 'icon' src = '$image' width = '200px' height = '200px' required style = 'border-radius:50%; width:200px; height :200px;'>  
-                            <input required type = 'file' name = 'profile_image' style = 'display:none';/>
-                          </label><br>
-                       <input class = 'form-control' value ='$bio' type = 'text' name = 'bio' required style = ' width:200px;'/>
+                    <div class = ' col-sm-12 col-md-6 col-lg-6 ' style = ' padding-top:150px;'>
+                              
+                  <form method = 'POST' action='profile.php' enctype ='multipart/form-data'> 
+                              <center>
+                                        <label style = 'border-radius:50%; width:200px; height :200px;'>
+                                          <img alt = 'icon' src = '$image' width = '200px' height = '200px' required style = 'border-radius:50%; width:200px; height :200px;'>  
+                                          <input required type = 'file' name = 'profile_image' style = 'display:none';/>
+                                        </label><br>
+                                    <input class = 'form-control' value ='$bio' type = 'text' name = 'bio' required style = ' width:200px;'/>
 
-                 </center>      
-     </div>
-      <div  class = ' col-sm-12 col-md-6 col-lg-6 ' style = ' padding:160px 0px 0px 10px; '>
-         <center>
-            <input class = 'form-control'  required value ='$temprament' type = 'text' name = 'temprament' style = ' width:200px;' /><br>
-            <input class = 'form-control' required type = 'text' name = 'username' value ='$username' style = ' width:200px;' /><br>
-            <input class = 'form-control' required type = 'email' name = 'email' value =' $email' style = ' width:200px;' /><br>
-           <input class = 'form-control' required type = 'password' name = 'password' value =' $password' style = ' width:200px;' />
-         </center>   
-     </div>
+                              </center>      
+                  </div>
+            <div  class = ' col-sm-12 col-md-6 col-lg-6 ' style = ' padding:160px 0px 0px 10px; '>
+              <center>
+                  <input class = 'form-control'  required value ='$temprament' type = 'text' name = 'temprament' style = ' width:200px;' /><br>
+                  <input class = 'form-control' required type = 'text' name = 'username' value ='$username' style = ' width:200px;' /><br>
+                  <input class = 'form-control' required type = 'email' name = 'email' value =' $email' style = ' width:200px;' /><br>
+                <input class = 'form-control' required type = 'password' name = 'password' value =' $password' style = ' width:200px;' />
+              </center>   
+          </div>
       
 
      
@@ -81,8 +86,6 @@ if($check_connection_to_database)
 
 
 
-
-  </body>
     ";
   }
   else
@@ -99,28 +102,27 @@ if($check_connection_to_database)
             }
             echo
             "
-            <body>
             <div class = 'row'>
-              <div class = ' col-sm-12 col-md-6 col-lg-6 ' style = ' padding-top:150px; '>
-                         
-        <form method = 'POST' action='profile.php' enctype ='multipart/form-data'> 
-                         <center>
-                                  <label style = 'border-radius:50%; width:200px; height :200px;'>
-                                    <img alt = 'icon' src = 'images/book.png' width = '200px' height = '200px' required>
-                                    <input required type = 'file' name = 'profile_image' style = 'display:none';/>
-                                  </label>
-                                   <input class = 'form-control' placeholder ='bio' type = 'text' name = 'bio' required style = ' width:200px;' />
-        
-                         </center>      
-             </div>
-              <div  class = ' col-sm-12 col-md-6 col-lg-6 ' style = ' padding:160px 0px 0px 10px; '>
-                 <center>
-                    <input class = 'form-control'  required placeholder ='Temprament' type = 'text' name = 'temprament' style = ' width:200px;' /><br>
-                    <input class = 'form-control' required type = 'text' name = 'username' value =' $username'style = ' width:200px;' /><br>
-                    <input class = 'form-control' required type = 'email' name = 'email' value =' $email'style = ' width:200px;' /><br>
-                   <input class = 'form-control' required type = 'password' name = 'password' value =' $password'style = ' width:200px;' />
-                 </center>   
-             </div>
+                          <div class = ' col-sm-12 col-md-6 col-lg-6 ' style = ' padding-top:150px; '>
+                                    
+                    <form method = 'POST' action='profile.php' enctype ='multipart/form-data'> 
+                                    <center>
+                                              <label style = 'border-radius:50%; width:200px; height :200px;'>
+                                                <img alt = 'icon' src = 'images/book.png' width = '200px' height = '200px' required>
+                                                <input required type = 'file' name = 'profile_image' style = 'display:none';/>
+                                              </label>
+                                              <input class = 'form-control' placeholder ='bio' type = 'text' name = 'bio' required style = ' width:200px;' />
+                    
+                                    </center>      
+                        </div>
+                              <div  class = ' col-sm-12 col-md-6 col-lg-6 ' style = ' padding:160px 0px 0px 10px; '>
+                                <center>
+                                    <input class = 'form-control'  required placeholder ='Temprament' type = 'text' name = 'temprament' style = ' width:200px;' /><br>
+                                    <input class = 'form-control' required type = 'text' name = 'username' value =' $username'style = ' width:200px;' /><br>
+                                    <input class = 'form-control' required type = 'email' name = 'email' value =' $email'style = ' width:200px;' /><br>
+                                  <input class = 'form-control' required type = 'password' name = 'password' value =' $password'style = ' width:200px;' />
+                                </center>   
+                            </div>
               
         
              
@@ -144,16 +146,7 @@ if($check_connection_to_database)
              </i>
                </center>
             <br>
-           
-               
-        
-        
-        </form>
-        
-        
-        
-        
-          </body>
+              </form>
             ";
           }
   }
@@ -174,37 +167,37 @@ if($result->num_rows > 0 )
 
                         echo "
                         <center>
-                                <div style = 'margin-top:20px; height:360px;width:400px;border-radius:20px; padding:5px 15px 15px 10px;' class = 'bg-light'>
+                              <div style = 'margin-top:20px; height:360px;width:400px;border-radius:20px; padding:5px 15px 15px 10px;' class = 'bg-light'>
                                     <div style = 'margin-top:15px;margin-bottom:30px;'>
-                                            <a href = 'fetch_friend_profile.php' style = 'text-decoration:none;color:black;float:left;'>
-                                            <img src='$image' alt='icon' style = 'width:40px;height:40px;border-radius:50%;margin:1px 10px 0px 4px;float:left;'>
-                                            </a> 
-                                            <div style = 'float:left;font-size:12px;margin-bottom:3px;text-align:left;'>$username <br>
-                                    $email </div>
+                                                <a href = 'fetch_friend_profile.php' style = 'text-decoration:none;color:black;float:left;'>
+                                                <img src='$image' alt='icon' style = 'width:40px;height:40px;border-radius:50%;margin:1px 10px 0px 4px;float:left;'>
+                                                </a> 
+                                                    <div style = 'float:left;font-size:12px;margin-bottom:3px;text-align:left;'>$username <br>
+                                                      $email 
+                                                    </div>
 
-                                    </div>
-                                    <div style = 'width:100%'>
-                                        <img alt = 'icon' src = '$get_feed_image' style = 'width:330px;height:190px;border-radius:30px;'/>
-                                        <div style = 'font-size:12px;margin-bottom:3px;text-align:left;margin-top:10px;'>$get_poster:
-                                    $get_feed_status </div>
+                                     </div>
+                                            <div style = 'width:100%'>
+                                                    <img alt = 'icon' src = '$get_feed_image' style = 'width:330px;height:190px;border-radius:30px;'/>
+                                                    <div style = 'font-size:12px;margin-bottom:3px;text-align:left;margin-top:10px;'>$get_poster:
+                                                      $get_feed_status 
+                                              </div>
                                         
 
-                                    </div>
+                                   
 
-                                    <div >
+                                   
 
-                                    <form method = 'post' action='newsFeed.php?feed_id=$get_feed_status&feeder=$get_poster'
-                                            <div style = 'margin-left:10px'>
-                                        
+                                              <form method = 'post' action='newsFeed.php?feed_id=$get_feed_status&feeder=$get_poster'
+                                                    <div style = 'margin-left:10px'>
+                                                        <input class='form-control' name = 'comment' required placeholder= 'Comment here' 
+                                                        style='margin-top: 5px; width:66%;margin-left:10px;float:left;margin-right:-70px;border-radius:40px;'/>
+                                                        <input class = 'btn btn-primary' type='submit' value = 'Comment'  name = 'sendCoomment' 
+                                                        style='font-size:15px;margin-top:0px;width :90px; height:40px;float:right;margin-left:-10px;padding-bottom:10px;' />
+                                                    </div>
                                                         
-                                            <input class='form-control' name = 'comment' required placeholder= 'Comment here' 
-                                            style='margin-top: 5px; width:66%;margin-left:10px;float:left;margin-right:-70px;border-radius:40px;'/>
-                                            <input class = 'btn btn-primary' type='submit' value = 'Comment'  name = 'sendCoomment' 
-                                            style='font-size:15px;margin-top:0px;width :90px; height:40px;float:right;margin-left:-10px;padding-bottom:10px;' />
-                                            </div>
-                                                
-                                        </form> 
-                                    </div>  
+                                              </form> 
+                                
                                
 
 
@@ -256,10 +249,7 @@ if($_SERVER["REQUEST_METHOD"] =  "POST" && isset($_POST["update_profile"]))
 
 }
 
- ?>
-     
-    
- <?php
+ 
 
           include("footer.php")
 ?>

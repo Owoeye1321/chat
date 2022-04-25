@@ -2,10 +2,8 @@
   color: black;
   height: 420px;
   border-radius: 20px;
-  padding: 10px 10px 10px 20px;
-  width: 100%;
+  padding: 10px 10px 10px 0px;
   overflow: hidden;
-  background-color: #ffffff;
 }
 #mainchat {
   width: 104%;

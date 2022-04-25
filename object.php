@@ -69,7 +69,7 @@
                                                         $filetype = strtolower(pathinfo($destination,PATHINFO_EXTENSION));
                                                         if($image_size > 400000)
                                                         {
-                                                          $_SESSION['err_to_create'] = "file too large";
+                                                          $_SESSION['err_to_create'] = "<i style = 'color:green'>file too large</i>";
                                                         }
                                                     else if($filetype == "png" || $filetype == "jpg" || $filetype == "jpeg")
                                                     {

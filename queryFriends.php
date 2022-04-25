@@ -1,10 +1,9 @@
-<?php 
-session_start();    
-if (empty($_SESSION["name"])){                           
-  header("Location:index.php");                          
+<div id = 'formDiv' style = 'height:600px'>
 
-}
-    include ("object.php");
+<div id = 'formScroll' ' style = 'height:600px'>
+    <p style = 'margin-left:20%'><strong>Friends</strong></p>
+    <?php 
+
    $callingObjectClass = new  Database_object_oriented_index();
    $connect = $callingObjectClass->connect_to_database_function();
    if ($connect){
@@ -76,26 +75,18 @@ if (empty($_SESSION["name"])){
                                                        
                                                        
                                                             echo "
-                                                            <div id = 'friendList'>
+                                                            
+                                                            <div id = 'friendList' >
                                                             <div id = 'imgIcon'>
                                                                     <a href = 'home.php?userId=$userId ' style = 'text-decoration:none;color:black;'>
                                                                     <img src='$get_current_user_image' alt='icon' style = 'width:30px;height:35px;border-radius:50%;float:left;margin:1px 10px 4px 4px;'> </a>               
                                                             </div>
                                                             <div id = 'sep' >
                                                                 <strong ><a href = 'home.php?userId=$userId ' style = 'text-decoration:none;color:black;'>$chatted</a></strong>
-                                                                <p style = 'font-size:10px;'>"; 
-                                                                if(isset($lastMessage)) echo $lastMessage;
-                                                                echo "</p>
+                                                                <p style = 'font-size:10px;'>
+                                                               
                                                             </div>
-                                                            <div id = 'info' style = 'float:right;'>";
-                                                            if ($newMessage) {
-                                                                # code...
-                                                                echo "
-                                                           
-                                                                <center>   <p style='background-color:Lightgreen;border-radius:50%;width: 20px;height: 20px;margin-top:10px;font-size:13px;color:white'></p> </center>";
-                                                           
-                                                            }
-                                                            echo " </div>
+                                                            <div id = 'info' style = 'float:right;'> </div>
                                                          </div>
                                                          <center> <hr></center> ";
                                                         
@@ -118,27 +109,16 @@ if (empty($_SESSION["name"])){
                                                    }
                                               
                                                     echo "
-                                                    <div id = 'friendList'>
+                                                    <div id = 'friendList' style = 'margin-top:10px;'>
                                                     <div id = 'imgIcon'>
                                                             <a href = 'home.php?userId=$userId ' style = 'text-decoration:none;color:black;'>
                                                             <img src='images/user.png' alt='icon' style = 'width:30px;height:35px;border-radius:50%;float:left;margin:1px 10px 4px 4px;'> </a>               
                                                     </div>
                                                     <div id = 'sep' >
                                                         <strong ><a href = 'home.php?userId=$userId ' style = 'text-decoration:none;color:black;'>$chatted</a></strong>
-                                                        <p style = 'font-size:10px;'>"; 
-                                                        if(isset($lastMessage)) echo $lastMessage;
-                                                        echo "</p>
+                                                      
                                                     </div>
-                                                    <div id = 'info' style = 'float:right;'>";
-                                                    if ($newMessage) {
-                                                        # code...
-                                                        echo "
-                                                   
-                                                        <center>   <p style='background-color:Lightgreen;border-radius:50%;width: 20px;height: 20px;margin-top:10px;font-size:13px;color:white'> </p> </center>";
-                                                   
-                                                    }
-                                                    echo "
-                                                    </div>
+                                                 
                                             </div>
                                         <center> <hr></center> ";  
                                                 }
@@ -162,3 +142,6 @@ if (empty($_SESSION["name"])){
        
       }
 ?>
+</div>
+
+</div>

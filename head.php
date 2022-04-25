@@ -16,3 +16,12 @@
         <title>Chat Me</title>
               </head>
               <body class = "bg-light">
+<?php   
+session_start();   
+if (empty($_SESSION["name"]))
+{                           
+  header("Location:index.php");                          
+
+}    
+require('nav.php');
+?>

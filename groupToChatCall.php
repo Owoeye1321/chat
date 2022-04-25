@@ -1,6 +1,5 @@
 
 <?php
-require('head.html');
 $servername = "localhost";
 $username = "root";
 $password = "";
