@@ -1,2 +1,2 @@
 # chatme
-This is a chat site still in progress
+This is a social site built with object oriented php and asynchronous javascript
