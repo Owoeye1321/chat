@@ -57,6 +57,22 @@ if(empty($_SESSION['name']))
                }
 
             }
+            elseif($_SERVER["REQUEST_METHOD"] = "POST" && isset($_POST["sendFeedback"])){
+             $username = $_SESSION["name"];
+              $feedback = $_POST['feedback'];
+              if (!preg_match("/^[a-zA-Z ]*$/",$feedback)) 
+                          {
+                              $_SESSION["feedbackError"] = "<span style='color:red;'>Only letters and white space allowed for feedback</span>";
+                          }else{
+                            $sql = "INSERT INTO `websiteComment` (`username`, `comment`) VALUES ('$username','$feedback')";
+                            $result = $get_connection_to_database->query($sql);
+                            if(!$result){
+                              $_SESSION["feedbackError"] = "<span style='color:red;'>Feedback not sent</span>";
+                            }else{
+                              $_SESSION["feedbackError"] = "";
+                            }
+                          }
+            }
          
         }
 
@@ -76,7 +92,7 @@ if(empty($_SESSION['name']))
 <div class = "row " >
   <div class = "col-sm-12 col-md-4 col-lg-4" " id = 'takeNav'>
             <!-- this is the block of code for friends in the newsfeed page -->
-           <?php require('queryFriends.php') ?>
+           <?php require('queryFriends.php'); require('commentToWeb.php') ?>
     </div>
 
     <div class = "col-sm-12 col-md-4 col-lg-4">

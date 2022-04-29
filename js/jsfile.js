@@ -5,7 +5,6 @@ if(window.history.replaceState)
     window.history.replaceState(null,null,window.location.href)
 }    
 
-
 //this is an ajax query that changes the content of available_groups into groupchatcall page response
 //it fetches the display of the goup to chat call and display it in the available content
 const groupCall = new XMLHttpRequest()

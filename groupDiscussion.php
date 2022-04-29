@@ -1,3 +1,14 @@
+<style>
+  #takeNav{
+  display: block;
+  padding:20px 30px 50px 10px;
+}
+@media (max-width: 520px) {
+  #takeNav{
+  display: none;
+}
+}
+</style>
 <?php
     require('head.php');
     require('object.php');
