@@ -56,13 +56,39 @@ if ($connect->connect_error)
 <div id = 'makeIt' style = "width:100%;height:50px;padding:5px 5px 5px 5px;"> 
 <?php
   if (isset($get_current_user_image)) {
-    echo " <a href = 'profile.php' style = 'text-decoration:none;color:black;float:left;height:30px;width:39px;margin-right:10px'>
-    <img src='$get_current_user_image' alt='icon' style = 'width:30px;height:30px;border-radius:50%;margin:1px 10px 5px 4px;margin-top:5px;'>
+    echo " <a href = 'profile.php'
+     style = 'text-decoration:none;
+     color:black;
+     float:left;
+     height:30px;
+     width:39px;
+     margin-right:10px'>
+
+    <img src='$get_current_user_image' alt='icon'
+     style = 'width:30px;
+     height:30px;
+     border-radius:50%;
+     margin:1px 10px 5px 4px;
+     margin-top:5px;'>
     </a>  ";
+
   } else {
-    echo " <a href = 'profile.php' style = 'text-decoration:none;color:black;float:left; ' >
-    <img src='images/user.png' alt='icon' style = 'width:30px;height:30px;border-radius:20%;margin:1px 10px 5px 4px;margin-top:5px;'>
+    echo " <a href = 'profile.php'
+     style = 'text-decoration:none;
+     color:black;
+     float:left;
+     height:30px;
+     width:39px;
+     margin-right:10px'>
+
+    <img src='images/user.png' alt='icon'
+    style = 'width:30px;
+    height:30px;
+    border-radius:20%;
+    margin:1px 10px 5px 4px;
+    margin-top:5px;'>
     </a>  ";  
+
   }
   
   
@@ -78,13 +104,37 @@ if ($connect->connect_error)
 <div style ="padding:7px 20px 0px 0px;margin-bottom:-60px;width:35%;float:left; height:50px;" id = "takeNav" >
 <?php
   if (isset($get_current_user_image)) {
-    echo " <a href = 'profile.php' style = 'text-decoration:none;color:black;float:left;height:30px;width:39px;margin-right:10px;' id = 'takeNav'>
-    <img src='$get_current_user_image' alt='icon' style = 'width:30px;height:30px;border-radius:50%;margin:1px 10px 5px 4px;margin-top:-17px;'>
+    echo " <a href = 'profile.php'
+     style = 'text-decoration:none;
+     color:black;
+     float:left;
+     height:30px;
+     width:39px;
+     margin-right:10px;' 
+     id = 'takeNav'>
+
+    <img src='$get_current_user_image' alt='icon'
+    style = 'width:30px;
+    height:30px;
+    border-radius:50%;
+    margin:1px 10px 5px 4px;
+    margin-top:-17px;'>
     </a>  ";
+
   } else {
-    echo " <a href = 'profile.php' style = 'text-decoration:none;color:black;float:left; ' id = 'takeNav'>
-    <img src='images/user.png' alt='icon' style = 'width:30px;height:30px;border-radius:20%;margin:1px 10px 5px 4px;margin-top:-17px;'>
+    echo " <a href = 'profile.php'
+     style = 'text-decoration:none;
+     color:black;float:left;'
+      id = 'takeNav'>
+
+    <img src='images/user.png' alt='icon' 
+    style = 'width:30px;
+    height:30px;
+    border-radius:20%;
+    margin:1px 10px 5px 4px;
+    margin-top:-17px;'>
     </a>  ";  
+    
   }
   
 ?>

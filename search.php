@@ -1,12 +1,13 @@
 <?php 
-session_start();
+
+require ("object.php");
+   require('head.php');
+
 if(empty($_SESSION['name']))
 {
         header('location:index.php');    
 }
-       include ("object.php");
-        require('head.html');
-        require("nav.php");
+       
 
        if(isset($_POST['search']) )
        {
@@ -73,6 +74,19 @@ if(empty($_SESSION['name']))
 
 
                         }
+                        ?>
+                        <style>
+  #takeNav{
+  display: block;
+  padding:20px 30px 50px 10px;
+}
+@media (max-width: 520px) {
+  #takeNav{
+  display: none;
+}
+}
+</style>
+                        <?php
 
                         $sql =  "SELECT * FROM `feed` WHERE `sender` = '$get_search_details' ORDER BY `id` DESC";
                         $result = $conn->query($sql);
