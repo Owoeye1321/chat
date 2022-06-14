@@ -10,6 +10,7 @@
 }
 </style>
 <?php  
+      $_SESSION['errForGroup'] = "";
 
         require('head.php');
         require('object.php');

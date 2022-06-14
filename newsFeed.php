@@ -89,7 +89,7 @@ if(empty($_SESSION['name']))
 }
 }
 </style>
-<div class = "row " >
+<div class = "row ">
   <div class = "col-sm-12 col-md-4 col-lg-4" " id = 'takeNav'>
             <!-- this is the block of code for friends in the newsfeed page -->
            <?php require('queryFriends.php'); require('commentToWeb.php') ?>
@@ -100,7 +100,6 @@ if(empty($_SESSION['name']))
      <?php require('queryFeeds.php') ?>
        
     </div>
-
 
     <div class = "col-sm-12 col-md-4 col-lg-4 " id = 'takeNav'>
           <!-- this is the block of code for groups in the newsfeed page!-->

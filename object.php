@@ -265,12 +265,7 @@
           if(empty($_SESSION['error_while_posting_feed']) && isset($status) && isset($sender))
           {
             $_SESSION['error_while_posting_feed'] = "<i style='color:green; font-size:13px;'>Post a news feed</i>";
-                      if(file_exists($destination))
-                      {
-                        $_SESSION['error_while_posting_feed'] = "Choose another image ";
-                      }
-                      else
-                      {
+                 
                              $upload_image_feed= $destination;
                                 $check_conenection_again = $this->connect_to_database_function();
 
@@ -283,7 +278,6 @@
                                             if(move_uploaded_file($source,$upload_image_feed))
                                             {
                                                 echo'<script>alert("Your feed has been posted successfully")</script>';
-                                          // $_SESSION["error_while_posting_feed"] = "updated successfully  ";
                                               
                                             }
                                                 
@@ -294,7 +288,7 @@
                                             $_SESSION["error_while_posting_feed"] = "server issues";
                                             
                                         }
-                      }
+                    
                          
 
           }
