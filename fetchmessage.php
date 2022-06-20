@@ -33,11 +33,11 @@ session_start();
             $conn = $callingObjectClass->connect_to_database_function();
 if ($conn)
 {
-            $sql = "SELECT * FROM  `messages` 
+            $sql = " SELECT * FROM  `messages` 
             WHERE `sender` = '$sender' 
             AND `receiver` = '$receiver' 
             OR `sender` = '$receiver' 
-            AND `receiver` = '$sender'";
+            AND `receiver` = '$sender' ";
         $result = $conn->query($sql);
                 if($result->num_rows > 0 )
                 {
@@ -45,14 +45,33 @@ if ($conn)
                     while($row = $result->fetch_assoc())
                     {
                         $message  = $row["message"];
+                        $image = $row['image'];
                         $getSenderDifferenceMessageColor = $row['sender'];
                         if($sender ==  $getSenderDifferenceMessageColor)
                         {
-                            echo "  <p style ='margin-bottom:4px;background-color:lightblue;padding:5px 15px 10px 10px ;border-radius:10px;width:fit-content;margin-left:auto;'> $message </p>  ";                
+                            if($message !== ''){
+                                echo "  <p style ='margin-bottom:4px;background-color:
+                            lightblue;padding:5px 15px 10px 10px ;border-radius:10px;
+                            width:fit-content;margin-left:auto;'> $message </p>  ";   
+                                if($image !== ''){
+                                    echo "<img src = '$image'  style = 'height:100px; width:100px;'   />"; 
+                                }
+                          
+
+                            }            
+
                         }
                         elseif ($getSenderDifferenceMessageColor !== $sender)
                         {
-                            echo "  <p style ='margin-bottom:4px;background-color:lightgreen;padding:5px 15px 10px 10px ;border-radius:10px;width:fit-content;margin-left:5px;'> $message </p>  "; 
+                            if($message !== ''){
+                                echo "  <p style ='margin-bottom:4px;background-color:
+                                lightgreen;padding:5px 15px 10px 10px ;border-radius:
+                                10px;width:fit-content;margin-left:5px;'> $message </p>  "; 
+                                if($image !== ''){
+                                    echo "<img src = '$image'  style = 'height:100px; width:100px;'   />"; 
+                                }
+                            }
+                            
                         }         
 
                     }
