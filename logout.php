@@ -11,7 +11,11 @@ $username = $_SESSION["name"];
           while ($row = $result->fetch_assoc()) { $password =  $row['password'];}
               $sql = "UPDATE `users` SET `status` = 'Offline' WHERE `username` = '$username' AND `password` = '$password'";
                   $innerResult = $conn->query($sql);
-                         if($innerResult > 0 ){ unset($_SESSION["name"]); $_SESSION["err_log"] = ""; header("location:index.php");}; 
+                         if($innerResult > 0 ){ 
+                            unset($_SESSION["name"]); unset($_SESSION['error_while_sending_file']);
+                             $_SESSION["err_log"] = "";
+                             unset($_SESSION["errForGroup"]);
+                              header("location:index.php");}; 
        }    
        
 
