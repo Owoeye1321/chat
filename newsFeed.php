@@ -21,18 +21,7 @@ if(empty($_SESSION['name']))
                        $get_status = $_POST['status'];
                        $get_date_posted = date("d-m-y");
                      $connect_to_add_new_feed = $get_object_properties->news_feed($get_current_user, $get_status, $get_image_destination,  $get_image_size, $get_image_source, $get_date_posted);
-                     if($connect_to_add_new_feed = false)
-                     {
-                         echo $connect_to_add_new_feed;
-                        
-                        echo "<script>
-                        alert('Something went wrong')
-                        
-                               </script>";
-                     }
-                   
-
-
+              
             }
             elseif ($_SERVER["REQUEST_METHOD"] = "POST" && isset($_POST["sendCoomment"]) ) 
             {
