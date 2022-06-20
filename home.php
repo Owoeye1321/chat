@@ -12,7 +12,7 @@
 <?php    
 require('head.php');
 require('object.php');             
-
+// $_SESSION["error_while_sending_file"] = "An error has occured";
       
       $callingObjectClass = new  Database_object_oriented_index();
       $check_connection_to_database = $callingObjectClass->connect_to_database_function();
@@ -43,42 +43,18 @@ require('object.php');
                       $username = $_SESSION['name'];
                     }
 
-        if($_SERVER["REQUEST_METHOD"] ==  "POST" && isset($_POST["send_message"]))
+        if($_SERVER["REQUEST_METHOD"] ==  "POST" && isset($_POST["chat"]))
         {
-          echo'<script>alert("Yello working on it")</script>';
-          if(isset( $_POST["chat"]) && empty( $_POST["message_with_a_file"])){
-
-            echo'<script>alert("Yello working on message alone")</script>';
-            
-          } else if(empty( $_POST["chat"]) && isset( $_POST["message_with_a_file"])){
-
-            echo'<script>alert("Yello working on message alone")</script>';
-          }
-                // $sender = $username;
-                // $receiver = $friendUsername;
-                // $message = $_POST["chat"];  
-
-                //       if(!empty($message))
-                //       {
-                //         $send_message_to_database = $callingObjectClass->send_message_to_database($sender,$receiver,$message);
-                      
-                //       }
-                       
+                          $sender = $username;
+                            $receiver = $friendUsername;
+                               $message = $_POST["chat"];  
+                           $send_message_to_database = $callingObjectClass->send_message_to_database($sender,$receiver,$message);
+           
               
         }
-        // else if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["message_with_a_file"])) {
-        //   # The code goes in here
-        //   $get_image_source = $_FILES['message_with_a_file']['tmp_name'];
-        //   $get_image_destination = 'feedImage/'.  $_FILES['message_with_a_file']['name'];
-        //      $get_image_size = $_FILES['message_with_a_file']['size'];
-        //      echo'<script>alert("Yello working on it")</script>';
+  
 
 
-        // }else if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["chat"]) && isset($_POST["message_with_a_file"])) {
-        //   # code...
-
-
-        // }
 
        
         $sql = "SELECT DISTINCT `status` FROM `users` WHERE `username` = '$friendUsername'";
@@ -109,16 +85,18 @@ require('object.php');
                                   <p >Chat Interface</p>
                         </div>
 
-                          <form method = "POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                          <form method = "POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"  enctype ="multipart/form-data">
                           <div style = "margin-left:10px">
-                         
-                                  
-                          <input class="form-control" name = "chat" placeholder= "Chat here" style="margin-top: 5px;border-radius:30px; width:60%;margin-left:10px;float:left;margin-right:10px;"/>
-                          <label style = 'border-radius:50%; width:10%; height :28px;margin-top:5px;float:left; margin-right:3px;'>
+                            <!-- <i style="color:red; font-size:13px;"> <?php //if (isset($_SESSION["error_while_sending_file"])) {
+               //   echo $_SESSION["error_while_sending_file"];}?>
+                </i> -->
+                          <input class="form-control my-2" name = "chat" placeholder= "Chat here" style="border-radius:30px; width:75%;margin-left:10px;float:left;margin-right:10px;"/>
+                          <!-- <label style = 'border-radius:50%; width:10%; height :28px;margin-top:5px;float:left; margin-right:3px;'>
                                      <img alt = 'icon' src = 'images/file.png' width = '100%' height = '40px' >
-                                     <input  type = 'file' name = 'message_with_a_file' style = 'display:none';/>
-                                   </label>
-                          <input class = 'btn btn-primary' type="submit" name = "send_message" value = 'Send' style=";margin-top:5px; height:40px; float:left;" />
+                                     <input  type = 'file' name = 'message_with_a_file' style = 'display:none;'/>
+                                   </label> -->
+                          <input class = 'btn btn-primary' type="submit" value = 'Send' style=";margin-top:5px; height:40px; float:left;" />
+                         
                           </div>
                                   
                           </form> 
