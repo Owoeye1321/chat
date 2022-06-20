@@ -173,42 +173,42 @@
                                           }
                                           else
                                           {
-                                                                  
-                                                                          $uploaded_image = $destination;
-                                                                          $check_conenection_again = $this->connect_to_database_function();
+                        
+                                $uploaded_image = $destination;
+                                $check_conenection_again = $this->connect_to_database_function();
 
-                                                                      if ($check_conenection_again)
-                                                                      {
-                                                                      // `bio`, `username`,`password`, `email`, `image`, `temprament`
-                                                                              $sql = "UPDATE `profile` SET `bio` = '$clean_bio',
-                                                                              `username` = '$clean_username', `password` = '$password',
-                                                                              `email` = '$clean_email', `image` = '$uploaded_image', 
-                                                                              `temprament` = '$clean_temprament' 
-                                                                               WHERE  `username` = '$name_to_update' ";
-                                                                          $result = $check_conenection_again->query($sql);
-                                                                          if($result > 0)
-                                                                          {
-                                                                            if(move_uploaded_file($source,$destination))
-                                                                            {
-                                                                               echo'<script>alert("Your profile has been updated successfully")</script>';
-                                                                          // $_SESSION["err_to_update"] = "updated successfully  ";
-                                                                          
-                                                                            }
-                                                                           
-                                                                          }
-                                                                          else
-                                                                          {
-                                                                            echo'<script>alert("Something occured")</script>';
-                                                                            $_SESSION["err_to_update"] = "server issues";
-                                                                            
-                                                                          }
-                                                                      }  
-                                                                          
-                                                                    
-                                                                    else
-                                                                    {
-                                                                      $_SESSION["err_to_update"] = "Image cannot be saved";
-                                                                    }
+                            if ($check_conenection_again)
+                            {
+                            // `bio`, `username`,`password`, `email`, `image`, `temprament`
+                                    $sql = "UPDATE `profile` SET `bio` = '$clean_bio',
+                                    `username` = '$clean_username', `password` = '$password',
+                                    `email` = '$clean_email', `image` = '$uploaded_image', 
+                                    `temprament` = '$clean_temprament' 
+                                      WHERE  `username` = '$name_to_update' ";
+                                $result = $check_conenection_again->query($sql);
+                                if($result > 0)
+                                {
+                                  if(move_uploaded_file($source,$destination))
+                                  {
+                                      echo'<script>alert("Your profile has been updated successfully")</script>';
+                                // $_SESSION["err_to_update"] = "updated successfully  ";
+                                
+                                  }
+                                  
+                                }
+                                else
+                                {
+                                  echo'<script>alert("Something occured")</script>';
+                                  $_SESSION["err_to_update"] = "server issues";
+                                  
+                                }
+                            }  
+                                
+                          
+                          else
+                          {
+                            $_SESSION["err_to_update"] = "Image cannot be saved";
+                          }
                                         }
                           
                             
@@ -221,11 +221,12 @@
               if($conn)
               {
 
-                $sql = "INSERT INTO `messages` (`sender`,`receiver`,`message`) VALUES ('$sender','$receiver','$message')";
+                $sql = "INSERT INTO `messages` (`sender`,`receiver`,`message`, `image`) VALUES ('$sender','$receiver','$message','')";
                 $result = $conn->query($sql);
                 if($result > 0)
                 {            
-                  $_SESSION['message status'] = 'logged in';                                      
+                  $_SESSION['message status'] = 'logged in';        
+                 // echo "success";                              
                   // echo "<script> alert ('$receiver would receive your message')</script>";     
                 }
                 else
@@ -236,6 +237,76 @@
                 }
               }
         }
+        public function send_message_file_to_database($sender,$receiver,$destination, $size, $source)
+        {
+              $conn = $this->connect_to_database_function();
+              if($conn)
+              {
+
+                $filetype = strtolower(pathinfo($destination,PATHINFO_EXTENSION));
+                if($size > 400000)
+                {
+                  $_SESSION['error_while_posting_feed'] = "file too large";
+                }
+                      else if($filetype == "png" || $filetype == "jpg" || $filetype == "jpeg")
+                      {
+                        $_SESSION['error_while_sending_file'] = "";
+                      }
+              else
+              {
+                $_FILES['message_with_a_file'] = '';
+                $_SESSION['error_while_sending_file'] = "Invalid filetype";
+                
+              } 
+
+              if(empty($_SESSION['error_while_sending_file']) && isset($sender) && isset($receiver))
+              {
+                $_SESSION['error_while_sending_file'] = "<i style='color:green; font-size:13px;'>Send message and files</i>";
+                     
+                                 $upload_image_message = $destination;
+                                 echo $upload_image_message;
+    
+                                 $sql = "INSERT INTO `messages` (`sender`,`receiver`,`message`, `image`) 
+                                 VALUES ('$sender','$receiver','', '$upload_image_message')";
+                                            $result = $conn->query($sql);
+                                            if($result > 0)
+                                            {
+                                                                    
+                                                if(move_uploaded_file($source,$upload_image_message))
+                                                {
+                                                    echo'<script>alert("Process completed")</script>';
+                                                  
+                                                }
+                                                    
+                                            }
+                                            else
+                                            {
+                                                echo'<script>alert("Something occured")</script>';
+                                                $_SESSION["error_while_sending_file"] = "server issues";
+                                                
+                                            }
+                        
+                             
+    
+              }
+
+              //   $sql = "INSERT INTO `messages` (`sender`,`receiver`,`message`) VALUES ('$sender','$receiver','$message')";
+              //   $result = $conn->query($sql);
+              //   if($result > 0)
+              //   {            
+              //     $_SESSION['message status'] = 'logged in';        
+              //    // echo "success";                              
+              //     // echo "<script> alert ('$receiver would receive your message')</script>";     
+              //   }
+              //   else
+              //   {
+              //         echo "unable to save message";
+              //         echo $sender ,$receiver,$message;
+                    
+              //   }
+              // }
+        }
+      }
 
         public function news_feed($sender, $status, $destination, $size, $source,$date)
         {
