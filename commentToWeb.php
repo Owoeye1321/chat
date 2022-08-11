@@ -1,4 +1,4 @@
-<div class = 'bg-white' style = 'padding:10px 50px 30px 40px;margin-top:20px;border-radius:30px;'>
+<div class = 'bg-white' style = 'padding:10px 20px 30px 40px;margin-top:20px;border-radius:30px;'>
 <p>Feedback</p>
 <div style ='height:200px;' id = 'formDiv'>
 <div id = 'formScroll' style ='height:200px;' className = "feedback" >
