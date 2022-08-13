@@ -1,6 +1,6 @@
-<div id = 'formDiv' style = 'height:350px;'>
+<div id = 'formDiv' style = 'height:390px;padding:10px 50px 30px 40px;border-radius:30px;' class= 'bg-white'>
 
-<div id = 'formScroll' ' style = 'height:350px'>
+<div id = 'formScroll' style = 'height:370px'>
     <p style = 'margin-left:20%'><strong>Friends</strong></p>
     <?php 
 
