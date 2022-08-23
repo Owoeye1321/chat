@@ -85,9 +85,7 @@
                                               if(file_exists($destination))
                                               {
                                                 $_SESSION['err_to_create'] = "Choose another image ";
-                                              }
-                                                else
-                                                {
+                                              }else{
                                                    if(move_uploaded_file($source,$destination))
                                                      {
                                                             $uploaded_image = $destination;
@@ -120,6 +118,7 @@
                                       }
               
         }
+        
         public function update_database_profile( $bio, $username, $email, $temprament, $destination, $image_size,$source,$password,$name_to_update)
         {
                         $clean_bio = $this->test_data($bio);
@@ -370,10 +369,5 @@
         }
 
   }
-    
-  
- 
-
-
 
 ?>
