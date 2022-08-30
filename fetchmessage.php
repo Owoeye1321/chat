@@ -50,25 +50,28 @@ if ($conn)
                         if($sender ==  $getSenderDifferenceMessageColor)
                         {
                             if($message !== ''){
-                                echo "  <p style ='margin-bottom:4px;background-color:
+                                echo "<p style ='margin-bottom:4px;background-color:
                             lightblue;padding:5px 15px 10px 10px ;border-radius:10px;
                             width:fit-content;margin-left:auto;'> $message </p>  ";   
-                                if($image !== ''){
-                                    echo "<img src = '$image'  style = 'height:100px; width:100px;'   />"; 
+                                if($image){
+                                  echo $image;
+                                }else{
+                                    echo "";
                                 }
                           
-
                             }            
 
                         }
                         elseif ($getSenderDifferenceMessageColor !== $sender)
                         {
-                            if($message !== ''){
-                                echo "  <p style ='margin-bottom:4px;background-color:
+                            if($message){
+                                echo "<p style ='margin-bottom:4px;background-color:
                                 lightgreen;padding:5px 15px 10px 10px ;border-radius:
-                                10px;width:fit-content;margin-left:5px;'> $message </p>  "; 
-                                if($image !== ''){
-                                    echo "<img src = '$image'  style = 'height:100px; width:100px;'   />"; 
+                                10px;width:fit-content;margin-left:5px;'> $message </p> "; 
+                                if($image){
+                                   echo $image;
+                                }else{
+                                    echo "";
                                 }
                             }
                             

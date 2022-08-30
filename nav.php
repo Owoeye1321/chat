@@ -51,9 +51,9 @@ if ($connect->connect_error)
 }
 }
 </style>
+<div class = "bg-light">
 
-
-<div id = 'makeIt' style = "width:100%;height:50px;padding:5px 5px 5px 5px;"> 
+<div id = 'makeIt' style = "width:100%;height:50px;padding:5px 5px 5px 5px;" class= 'bg-dark'> 
 <?php
   if (isset($get_current_user_image)) {
     echo " <a href = 'profile.php'
@@ -90,7 +90,6 @@ if ($connect->connect_error)
     </a>  ";  
 
   }
-  
   
 ?>
 <form action = "search.php" method = "post"> 
@@ -170,4 +169,5 @@ if ($connect->connect_error)
  
 </nav>
 <div>
+</div>
 </div>

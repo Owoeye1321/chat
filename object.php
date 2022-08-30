@@ -223,15 +223,15 @@
                 $sql = "INSERT INTO `messages` (`sender`,`receiver`,`message`, `image`) VALUES ('$sender','$receiver','$message','')";
                 $result = $conn->query($sql);
                 if($result > 0)
-                {            
-                  $_SESSION['message status'] = 'logged in';        
-                 // echo "success";                              
-                  // echo "<script> alert ('$receiver would receive your message')</script>";     
+                {
+                  return true         ;   
+                 
                 }
                 else
                 {
                       echo "unable to save message";
                       echo $sender ,$receiver,$message;
+                      return false;
                     
                 }
               }
@@ -261,6 +261,7 @@
               if(empty($_SESSION['error_while_sending_file']) && isset($sender) && isset($receiver))
               {
                 $_SESSION['error_while_sending_file'] = "<i style='color:green; font-size:13px;'>Send message and files</i>";
+
                      
                                  $upload_image_message = $destination;
                                  echo $upload_image_message;
@@ -273,37 +274,19 @@
                                                                     
                                                 if(move_uploaded_file($source,$upload_image_message))
                                                 {
-                                                    echo'<script>alert("Process completed")</script>';
+                                                    return true;
                                                   
                                                 }
                                                     
                                             }
                                             else
                                             {
-                                                echo'<script>alert("Something occured")</script>';
-                                                $_SESSION["error_while_sending_file"] = "server issues";
+                                              return false;
+                                                // echo'<script>alert("Something occured")</script>';
+                                                // $_SESSION["error_while_sending_file"] = "server issues";
                                                 
                                             }
-                        
-                             
-    
               }
-
-              //   $sql = "INSERT INTO `messages` (`sender`,`receiver`,`message`) VALUES ('$sender','$receiver','$message')";
-              //   $result = $conn->query($sql);
-              //   if($result > 0)
-              //   {            
-              //     $_SESSION['message status'] = 'logged in';        
-              //    // echo "success";                              
-              //     // echo "<script> alert ('$receiver would receive your message')</script>";     
-              //   }
-              //   else
-              //   {
-              //         echo "unable to save message";
-              //         echo $sender ,$receiver,$message;
-                    
-              //   }
-              // }
         }
       }
 

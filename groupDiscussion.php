@@ -89,7 +89,7 @@ if($_SERVER["REQUEST_METHOD"] ==  "POST" && isset($_POST["groupchat"]))
       
 
     <body>
-    <div class = 'row' '>
+    <div class = 'row bg-dark'>
 
 <div class = "col-sm-12 col-md-4 col-lg-4" style= 'padding-top:20px;' id = 'takeNav' >
    <!-- this is the block of code for mychat in the mychat page!-->
@@ -116,9 +116,9 @@ if($_SERVER["REQUEST_METHOD"] ==  "POST" && isset($_POST["groupchat"]))
 <div class = "col-sm-12 col-md-4 col-lg-4" style= 'padding-top:20px;'  >
    <!-- this is the block of code for mychat in the mychat page!-->
   
-<div class = "container p-3 my-3 border" style="border-radius: 20px;">
-                <p style="color:black;"><?php 
-                 echo $username;?>
+<div class = "container p-3 my-3 " style="border-radius: 20px;">
+                <p style="color:white;"><?php 
+                 echo "Dear  $username";?>
                 </p>
             
              <div id = "grouparea" class= 'bg-white' style = 'width:100%;margin-left:0%;'>
@@ -133,7 +133,7 @@ if($_SERVER["REQUEST_METHOD"] ==  "POST" && isset($_POST["groupchat"]))
                     </div>
                   <form method = "POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                      <input class="form-control" name = "groupchat" placeholder= "Chat here" style="margin-top: 5px; width:70%;margin-left:20px;float:left;border-radius:20px;"/>
-                         <input type="image" src = "images/send-icon.png" style=";margin-top:1px;width :40px; height:40px;" />
+                         <input  class = 'btn btn-primary' type="submit" value = 'Send' style="margin-top:1px; height:40px;" />
    
                   </form> 
             </div> 

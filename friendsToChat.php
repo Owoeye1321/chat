@@ -18,7 +18,7 @@ if (empty($_SESSION["name"])){
 }
          $username = $_SESSION["name"];
        ?>
-      <div class = 'row' >
+      <div class = 'row bg-dark' >
 
             <div class = "col-sm-12 col-md-4 col-lg-4" id = 'takeNav' >
                   <!-- this is the block of code for mychat in the mychat page!-->
