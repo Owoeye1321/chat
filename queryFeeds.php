@@ -10,7 +10,8 @@
                                              style = ' width:60%;float:left;border-radius:30px;' />
                                    <input class = 'btn btn-primary' type="submit" value = 'Upload'  name = 'sendFeed' 
                                    style="font-size:15px;margin-top:0px;width :20%; height:40px;float:right;" /><br><br>
-                                  <i style='color:red; font-size:13px;;margin-top:-30px;'><?php 
+                                  <i style='color:red; font-size:13px;;margin-top:-30px;'>
+                                  <?php 
                     if (isset($_SESSION['error_while_posting_feed']))
                         {
                               echo $_SESSION['error_while_posting_feed'];

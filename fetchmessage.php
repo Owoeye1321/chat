@@ -46,38 +46,43 @@ if ($conn)
                     {
                         $message  = $row["message"];
                         $image = $row['image'];
+                        // if($image != ''){
+                        //     echo " <img alt = 'icon' src = '$image' style = 'height:200px; width:150px;margin-left:5px;margin:5px 5px 5px 5px;'/>"; 
+                        // }
                         $getSenderDifferenceMessageColor = $row['sender'];
                         if($sender ==  $getSenderDifferenceMessageColor)
                         {
                             if($message !== ''){
                                 echo "  <p style ='margin-bottom:4px;background-color:
                             lightblue;padding:5px 15px 10px 10px ;border-radius:10px;
-                            width:fit-content;margin-left:auto;'> $message </p>  ";   
-                                if($image){
-                                  echo $image;
-                                  echo "<img src = '$image'  style = 'height:100px; width:100px;margin-left:auto;'/>";
-                                }else{
-                                    echo "";
-                                }
-                          
-                            }            
+                            width:fit-content;margin-left:auto;'> $message </p>  ";  
+                                
+                            }
+                             if($image != ''){
+                                echo "  <p style ='margin-bottom:4px;background-color:
+                                lightblue;padding:5px 15px 10px 10px ;border-radius:10px;
+                            width:fit-content;margin-left:auto;'> 
+                            <img alt = 'icon' src = '$image' style = 'height:200px; width:150px;'/>
+                            </p>  "; 
+                                }         
 
                         }
                         elseif ($getSenderDifferenceMessageColor !== $sender)
                         {
                             if($message){
                                 echo "  <p style ='margin-bottom:4px;background-color:
-                                lightgreen;padding:5px 15px 10px 10px ;border-radius:
-                                10px;width:fit-content;margin-left:5px;'> $message </p>  "; 
+                                lightgreen;padding:3px 5px 5px 5px ;border-radius:
+                                10px;width:fit-content;margin-left:5px;'> $message</p>  "; 
                                
-                                if($image){
-                                   echo $image;
-                                   echo "<img src = '$image'  style = 'height:100px; width:100px;margin-left:auto;'/>";
-                                }else{
-                                    echo "";
-                                }
+                                
                             }
-                            
+                            if($image != ''){
+                                echo " <p style ='margin-bottom:4px;background-color:
+                                lightgreen;padding:3px 5px 5px 5px ;border-radius:
+                                10px;width:fit-content;margin-left:5px;'> 
+                                <img alt = 'icon' src = '$image' style = 'height:200px; width:150px;'/>
+                                </p>  ";  
+                                }
                         }         
 
                     }

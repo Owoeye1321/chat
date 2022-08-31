@@ -57,13 +57,13 @@ require('object.php');
 
                          $send_message_to_database = $callingObjectClass->send_message_to_database($sender,$receiver,$message);
                          if($send_message_to_database == true){
-                          echo'<script>alert("Message going good")</script>';
+                          // echo'<script>alert("Message going good")</script>';
                          }
                                       
                       }else if($get_image_source && !$message){
                               $send_image_to_database = $callingObjectClass->send_message_file_to_database($sender,$receiver,$get_image_destination, $get_image_size, $get_image_source);
                           if($send_image_to_database == true){
-                            echo'<script>alert("Image going good")</script>';
+                            // echo'<script>alert("Image going good")</script>';
                           }
 
                       }else if(!$get_image_source && !$message){
@@ -71,11 +71,15 @@ require('object.php');
 
 
                       }else if($get_image_source && $message){
-                       echo'<script>alert("Both messages for sending has been received")</script>';
 
-
-                       echo $get_image_source;
-                       echo $message;
+                        $send_message_to_database = $callingObjectClass->send_message_to_database($sender,$receiver,$message);
+                        $send_image_to_database = $callingObjectClass->send_message_file_to_database($sender,$receiver,$get_image_destination, $get_image_size, $get_image_source);
+                          
+                        if($send_message_to_database == true && $send_image_to_database == true){
+                         echo'<script>alert("both going good")</script>';
+                        }else{
+                          $_SESSION['error_while_posting_image'] = "Unsupported image";
+                        }
                       }
                             
                         
@@ -103,14 +107,14 @@ require('object.php');
                 <?php echo "Dear  $username" ;?>
               </p>
                           
-                <div id = "chatarea" class = 'bg-white p-4' style= 'width:100%;padding-bottom:10px;'>
+                <div id = "chatarea" class = 'bg-white p-4' style= 'width:100%;padding-bottom:10px;height:580px;'>
                     
                           <strong onClick = getUserProfile() ><?php echo $friendUsername?></strong><br>
                        
                       <i style = 'font-size:13px;margin-bottom:20px;color:green'>
                       <?php if ($friendStatus == "Online") echo $friendStatus; echo "<i style = 'color:black;'>"?> <?php echo $friendStatus; echo  "</i>" ?></i>
 
-                        <div class = 'bg-dark' id = "mainchat" style = 'width:100%;margin-top:10px;padding-right:8px;'>
+                        <div class = 'bg-dark' id = "mainchat" style = 'width:100%;margin-top:10px;padding-right:8px;height:400px;'>
                                   <p >Chat Interface </p>
                                   <p >Chat Interface</p>
                         </div>
@@ -125,11 +129,26 @@ require('object.php');
                                      <img alt = 'icon' src = 'images/file.png' width = '100%' height = '40px' >
                                      <input  type = 'file' name = 'message_with_a_file' style = 'display:none;'/>
                                    </label>
-                          <input class = 'btn btn-primary' name='submit_messages' type="submit" value = 'Send' style="margin-top:5px; height:40px; float:left;" />
+                          <input class = 'btn btn-primary' name='submit_messages' type="submit" value = 'Send' style="margin-top:5px; height:40px; float:left;" /><br>
+                       
                          
                           </div>
-                                  
+                          <br>
+                         
                           </form> 
+                          <div>
+                            
+                          </div>
+                          <center>
+                          <p style='color:red; font-size:13px;'>
+                          <?php 
+                    if (isset($_SESSION['error_while_posting_image']))
+                        {
+                              echo $_SESSION['error_while_posting_image'];
+                        }      ?>
+                        </p>
+                      </center>
+                                  
                 </div> 
                 
                 

@@ -58,12 +58,7 @@
                   $check_connection_to_create_group = $Object_oriented_index->connect_to_database_function();
         if($check_connection_to_create_group == true)
         {
-                    if(file_exists($destination))
-                    {
-                      $_SESSION['errForGroup'] = "Choose another image ";
-                    }
-
-                    else if( file_exists("groups/$group_name.txt"))
+                   if( file_exists("groups/$group_name.txt"))
                     {
                       $_SESSION['errForGroup'] = "Group Name already exist ";
                     }

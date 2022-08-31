@@ -245,26 +245,24 @@
                 $filetype = strtolower(pathinfo($destination,PATHINFO_EXTENSION));
                 if($size > 400000)
                 {
-                  $_SESSION['error_while_posting_feed'] = "file too large";
+                  $_SESSION['error_while_posting_image'] = "file too large";
                 }
-                      else if($filetype == "png" || $filetype == "jpg" || $filetype == "jpeg")
+                      else if($filetype === "png" || $filetype === "jpg" || $filetype === "jpeg")
                       {
-                        $_SESSION['error_while_sending_file'] = "";
+                        $_SESSION['error_while_posting_image'] = "";
                       }
               else
               {
                 $_FILES['message_with_a_file'] = '';
-                $_SESSION['error_while_sending_file'] = "Invalid filetype";
+                $_SESSION['error_while_posting_image'] = "Invalid filetype";
                 
               } 
 
-              if(empty($_SESSION['error_while_sending_file']) && isset($sender) && isset($receiver))
+              if(empty($_SESSION['error_while_posting_image']) && isset($sender) && isset($receiver))
               {
-                $_SESSION['error_while_sending_file'] = "<i style='color:green; font-size:13px;'>Send message and files</i>";
-
                      
                                  $upload_image_message = $destination;
-                                 echo $upload_image_message;
+                               //  echo $upload_image_message;
     
                                  $sql = "INSERT INTO `messages` (`sender`,`receiver`,`message`, `image`) 
                                  VALUES ('$sender','$receiver','', '$upload_image_message')";
