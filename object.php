@@ -6,6 +6,16 @@
         public $username ="root"; 
         public $password ="";
         public $database_name="chatroom";  
+
+
+
+
+
+        // public  $servername = "sql313.epizy.com";
+        // public $username ="epiz_32493098"; 
+        // public $password ="0Z9J0NQ1T0m";
+        // public $database_name="epiz_32493098_chatroom";  
+      
       
         //connection to database function block of code
         //Connecting the keyword to the database 
