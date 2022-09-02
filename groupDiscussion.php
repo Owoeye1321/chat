@@ -46,7 +46,7 @@
 
 
 
-if($_SERVER["REQUEST_METHOD"] ==  "POST" && isset($_POST["groupchat"]))
+if($_SERVER["REQUEST_METHOD"] ==  "POST" && isset($_POST["submit_group_messages"]))
 {
         $sender = $username;
         
@@ -54,9 +54,9 @@ if($_SERVER["REQUEST_METHOD"] ==  "POST" && isset($_POST["groupchat"]))
 
         if($check_connection_to_database == true)
         {
-              if(!empty($message))
+              if($message)
               {
-                    $sql = "INSERT INTO `GroupMessages` (`GroupName`,`sender`,`message`) VALUES ('$group_name','$sender','$message')";
+                    $sql = "INSERT INTO `GroupMessages` (`GroupName`,`sender`,`message`,`image`) VALUES ('$group_name','$sender','$message','')";
                        $result = $check_connection_to_database->query($sql);
                     if($result > 0)
                     {                                                  
@@ -113,7 +113,7 @@ if($_SERVER["REQUEST_METHOD"] ==  "POST" && isset($_POST["groupchat"]))
          <?php require('queryFeeds.php') ?>
       </div>
 
-<div class = "col-sm-12 col-md-4 col-lg-4" style= 'padding-top:20px;'  >
+<div class = "col-sm-12 col-md-4 col-lg-4">
    <!-- this is the block of code for mychat in the mychat page!-->
   
 <div class = "container p-3 my-3 " style="border-radius: 20px;">
@@ -121,19 +121,27 @@ if($_SERVER["REQUEST_METHOD"] ==  "POST" && isset($_POST["groupchat"]))
                  echo "Dear  $username";?>
                 </p>
             
-             <div id = "grouparea" class= 'bg-white' style = 'width:100%;margin-left:0%;'>
+             <div id = "grouparea" class= 'bg-white' style = 'width:100%;margin-left:0%;height:580px;'>
                         <h3>
                               <?php echo $group_name; ?>
                         </h3>
                         <p><?php echo $group_desc;?>
                         </p>
-                    <div id = "groupChatMessage" style = 'background-color:black;width:100%;padding-top:10px;margin-left:-5px'>
+                    <div id = "groupChatMessage" style = 'background-color:black;width:100%;padding-top:10px;margin-left:-5px;height:380;margin-bottom:30px;'>
                          <p >Your group messages would be displayed here. </p>
 
                     </div>
                   <form method = "POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                     <input class="form-control" name = "groupchat" placeholder= "Chat here" style="margin-top: 5px; width:70%;margin-left:20px;float:left;border-radius:20px;"/>
-                         <input  class = 'btn btn-primary' type="submit" value = 'Send' style="margin-top:1px; height:40px;" />
+                     <!-- <input class="form-control" name = "groupchat" placeholder= "Chat here" style="margin-top: 5px; width:70%;margin-left:20px;float:left;border-radius:20px;"/>
+                         <input  class = 'btn btn-primary' type="submit" value = 'Send' style="margin-top:1px; height:40px;" /> -->
+
+                         <input class="form-control my-2" name = "groupchat" placeholder= "Chat here" style="border-radius:30px; width:65%;margin-left:10px;float:left;margin-right:10px;"/>
+                          <label style = 'border-radius:50%; width:10%; height :28px;margin-top:5px;float:left; margin-right:3px;'>
+                                     <img alt = 'icon' src = 'images/file.png' width = '100%' height = '40px' >
+                                     <input  type = 'file' name = 'message_group_with_a_file' style = 'display:none;'/>
+                                   </label>
+                          <input class = 'btn btn-primary' name='submit_group_messages' type="submit" value = 'Send' style="margin-top:5px; height:40px; float:left;" /><br>
+                       
    
                   </form> 
             </div> 
