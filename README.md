@@ -5,19 +5,19 @@ This is a social site built with object oriented php and asynchronous javascript
 
 This is a page to message and send pictures to friends and family while they are online or offline
 
-### Authentication
+## Authentication
 
 GLobal variable like session is used to keep track of all user information and activities on the site
 
-#### News Feed Page
+## News Feed Page
 
 This is a page that performs the function on uploading feeds with a little bio, and it thus allow for comment from friends and family,
 
-##### Find Friends
+## Find Friends
 
 This is a tab for finding friends that are on the site through the search box or the find botton tab in the navigation
 
-###### Groups 
+## Groups 
 
 The group page performs the function of messaging friends in a group and each messages shows the sender at the top of the message.
 
