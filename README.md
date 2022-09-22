@@ -24,4 +24,7 @@ The group page performs the function of messaging friends in a group and each me
 
 It also allows for creating a group also.
 
-https://user-images.githubusercontent.com/64838533/191736003-29e58766-f15f-443b-8599-de966d090523.mov
+https://user-images.githubusercontent.com/64838533/191738783-176062e8-05dd-4406-a4b3-916141c82fb0.mov
+
+
+
